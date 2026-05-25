@@ -25,62 +25,63 @@ export function TestimonialsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="bg-[#111111] py-16 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+    /* Warm amber-dark — completely distinct from the cold blacks elsewhere */
+    <section ref={ref} className="grain relative overflow-hidden py-20 lg:py-32" style={{ backgroundColor: '#0E0900' }}>
+      {/* Very subtle warm radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(184,134,11,0.04),transparent)]" />
+
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 lg:mb-20">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="h-px w-8 bg-gold" />
-              <p className="eyebrow text-gold">Testimonials</p>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="headline-lg text-warm-white"
-            >
-              What our clients say
-            </motion.h2>
-          </div>
+        <div className="mb-14 lg:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <div className="h-px w-10 bg-gold" />
+            <p className="eyebrow text-gold">Testimonials</p>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 36 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="headline-lg text-warm-white max-w-xl"
+          >
+            What our clients say
+          </motion.h2>
         </div>
 
-        {/* Testimonials Grid */}
+        {/* Cards */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.article
               key={testimonial.author}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              className="relative border border-warm-white/8 p-8 lg:p-12 group hover:border-gold/30 transition-colors duration-500"
+              transition={{ duration: 0.7, delay: 0.2 + index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative border border-warm-white/6 p-8 lg:p-12 group hover:border-gold/25 transition-colors duration-500"
+              style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}
             >
-              {/* Top accent */}
-              <div className="absolute top-0 left-8 lg:left-12 h-[2px] w-12 bg-gold/50" />
+              <div className="absolute top-0 left-8 lg:left-12 h-[2px] w-10 bg-gold/40 group-hover:w-16 transition-all duration-500" />
 
-              {/* Large opening quote mark */}
-              <span className="font-serif text-7xl leading-none text-gold/15 select-none block mb-6">
+              {/* Large quote character */}
+              <span className="font-serif text-8xl leading-none text-gold/10 select-none block -mb-4">
                 &ldquo;
               </span>
-              
-              <blockquote className="font-serif text-lg lg:text-xl leading-relaxed text-warm-white/80 font-light">
+
+              <blockquote className="font-serif text-lg lg:text-xl leading-relaxed text-warm-white/75 font-light">
                 {testimonial.quote}
               </blockquote>
-              
-              <footer className="mt-10 pt-8 border-t border-warm-white/8 flex items-center gap-4">
-                {/* Avatar initial circle */}
-                <div className="shrink-0 h-10 w-10 rounded-full bg-gold/15 flex items-center justify-center">
-                  <span className="font-serif text-sm text-gold font-light">{testimonial.initial}</span>
+
+              <footer className="mt-10 pt-7 border-t border-warm-white/6 flex items-center gap-4">
+                <div className="shrink-0 h-11 w-11 border border-gold/30 flex items-center justify-center">
+                  <span className="font-serif text-sm text-gold/70 font-light">{testimonial.initial}</span>
                 </div>
                 <div>
-                  <p className="font-medium text-warm-white text-sm">{testimonial.author}</p>
-                  <p className="mt-0.5 text-xs text-warm-white/45">
-                    {testimonial.role}, {testimonial.company}
+                  <p className="font-medium text-warm-white text-sm tracking-wide">{testimonial.author}</p>
+                  <p className="mt-0.5 text-xs text-warm-white/35 font-light">
+                    {testimonial.role} — {testimonial.company}
                   </p>
                 </div>
               </footer>
