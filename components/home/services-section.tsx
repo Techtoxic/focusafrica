@@ -41,28 +41,28 @@ const services = [
 function ServiceAccordion({ service, isOpen, onClick }: { service: typeof services[0], isOpen: boolean, onClick: () => void }) {
   return (
     <motion.div
-      className="border-t border-warm-white/10 cursor-pointer"
+      className="border-t border-charcoal/10 cursor-pointer group"
       onClick={onClick}
     >
       <div className="flex items-start justify-between py-6 lg:py-8">
-        <div className="flex items-start gap-6 lg:gap-12">
-          <span className="font-serif text-sm text-warm-white/20">{service.id}</span>
-          <div className="flex-1">
-            <h3 className="font-serif text-xl lg:text-3xl text-warm-white transition-colors duration-300 hover:text-gold">
+        <div className="flex items-start gap-5 lg:gap-10 flex-1 min-w-0">
+          <span className="font-serif text-sm text-charcoal/20 pt-1 shrink-0">{service.id}</span>
+          <div className="flex-1 min-w-0">
+            <h3 className={`font-serif text-xl lg:text-2xl xl:text-3xl transition-colors duration-300 font-light ${isOpen ? 'text-gold' : 'text-charcoal group-hover:text-charcoal/70'}`}>
               {service.title}
             </h3>
             <motion.div
               initial={false}
               animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden"
             >
-              <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-warm-white/50">
+              <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-charcoal/60">
                 {service.description}
               </p>
               <Link
                 href={service.href}
-                className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-gold transition-colors duration-300 hover:text-gold-light"
+                className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-gold transition-colors duration-300 hover:text-gold-light"
                 onClick={(e) => e.stopPropagation()}
               >
                 Learn More
@@ -71,8 +71,8 @@ function ServiceAccordion({ service, isOpen, onClick }: { service: typeof servic
             </motion.div>
           </div>
         </div>
-        <button className="mt-1 p-2 text-warm-white/30 transition-colors duration-300 hover:text-warm-white">
-          {isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
+        <button className={`mt-1 ml-4 p-1.5 shrink-0 transition-colors duration-300 ${isOpen ? 'text-gold' : 'text-charcoal/25 group-hover:text-charcoal/50'}`}>
+          {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
         </button>
       </div>
     </motion.div>
@@ -85,52 +85,60 @@ export function ServicesSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section ref={ref} className="bg-[#111111] py-16 lg:py-24">
+    <section ref={ref} className="bg-warm-white py-16 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
-          {/* Left column - sticky header */}
+          {/* Left column — sticky header */}
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="eyebrow mb-6 text-gold"
+                className="flex items-center gap-3 mb-6"
               >
-                Our Services
-              </motion.p>
+                <div className="h-px w-8 bg-gold" />
+                <p className="eyebrow text-gold">Our Services</p>
+              </motion.div>
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="headline-md text-warm-white"
+                className="headline-md text-charcoal"
               >
-                Comprehensive solutions for
-                <span className="italic"> Africa&apos;s growth</span>
+                Comprehensive solutions for Africa&apos;s growth
               </motion.h2>
-              <motion.div
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                className="mt-6 text-base font-light leading-relaxed text-charcoal/55"
+              >
+                Five practice areas, one unified mission: sustainable impact across the continent.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.25 }}
               >
                 <Link
                   href="/services"
-                  className="mt-8 inline-flex items-center gap-3 border border-warm-white/30 px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-warm-white transition-all duration-300 hover:bg-warm-white hover:text-charcoal"
+                  className="mt-8 inline-flex items-center gap-3 border border-charcoal/25 px-6 py-3 text-[11px] font-medium uppercase tracking-[0.18em] text-charcoal transition-all duration-300 hover:bg-charcoal hover:text-warm-white"
                 >
                   View All Services
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </motion.div>
             </div>
           </div>
 
-          {/* Right column - accordion */}
+          {/* Right column — accordion */}
           <div className="lg:col-span-8">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="border-b border-warm-white/10"
+              className="border-b border-charcoal/10"
             >
               {services.map((service, index) => (
                 <ServiceAccordion

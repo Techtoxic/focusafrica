@@ -1,17 +1,19 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { DM_Sans, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const dmSans = DM_Sans({ 
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-dm-sans',
   display: 'swap',
 })
 
-const playfair = Playfair_Display({ 
+const cormorant = Cormorant_Garamond({ 
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-cormorant',
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
   display: 'swap',
 })
 
@@ -48,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} bg-warm-white`}>
+    <html lang="en" className={`${dmSans.variable} ${cormorant.variable} bg-warm-white`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Premium Consultancy Color Palette - Refined */
+  /* Premium Consultancy Color Palette */
   --background: #F7F5F2;
   --foreground: #1A1A1A;
   --card: #FFFFFF;
@@ -39,8 +39,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
-  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --font-mono: 'Geist Mono', monospace;
   
   --color-background: var(--background);
@@ -91,17 +91,17 @@
   }
 }
 
-/* Premium Typography */
+/* Typography — Cormorant Garamond has gorgeous italics, use them sparingly */
 .headline-xl {
-  @apply font-serif text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[0.95];
+  @apply font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[0.92];
 }
 
 .headline-lg {
-  @apply font-serif text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1];
+  @apply font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[0.98];
 }
 
 .headline-md {
-  @apply font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05];
+  @apply font-serif text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-[1.02];
 }
 
 .body-lg {
@@ -109,7 +109,7 @@
 }
 
 .eyebrow {
-  @apply font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium;
+  @apply font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium;
 }
 
 .link-hover {
