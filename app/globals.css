@@ -4,220 +4,168 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Premium Consultancy Color Palette */
-  --background: #F7F5F2;
-  --foreground: #1A1A1A;
-  --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
-  --primary: #0A0A0A;
-  --primary-foreground: #FAFAFA;
-  --secondary: #171717;
-  --secondary-foreground: #F5F5F5;
-  --muted: #F0EDE8;
-  --muted-foreground: #737373;
+  /* ── OLED Dark Cinema + Gold ── UI Pro Max: Dark Mode (OLED) */
+  --background: #050506;
+  --foreground: #EDEDEF;
+  --card: #0a0a0c;
+  --card-foreground: #EDEDEF;
+  --popover: #0a0a0c;
+  --popover-foreground: #EDEDEF;
+  --primary: #B8860B;
+  --primary-foreground: #050506;
+  --secondary: #111113;
+  --secondary-foreground: #EDEDEF;
+  --muted: #111113;
+  --muted-foreground: #8A8F98;
   --accent: #B8860B;
-  --accent-foreground: #0A0A0A;
+  --accent-foreground: #050506;
   --destructive: #DC2626;
   --destructive-foreground: #FAFAFA;
-  --border: #E5E0D8;
-  --input: #F0EDE8;
+  --border: rgba(255,255,255,0.07);
+  --input: #111113;
   --ring: #B8860B;
   
-  /* Custom tokens */
-  --navy: #0A0A0A;
-  --navy-light: #171717;
-  --gold: #B8860B;
-  --gold-light: #D4A949;
-  --warm-white: #F7F5F2;
-  --warm-gray: #F0EDE8;
-  --charcoal: #1A1A1A;
-  --stone: #737373;
-  
-  --radius: 0rem;
+  /* Design Tokens — UI Pro Max Cinema Dark */
+  --bg-deep:     #020203;
+  --bg-base:     #050506;
+  --bg-elevated: #0a0a0c;
+  --bg-surface:  #111113;
+
+  --gold:        #B8860B;
+  --gold-light:  #D4A949;
+  --gold-glow:   rgba(184,134,11,0.18);
+
+  --warm-white:  #EDEDEF;
+  --muted-text:  #8A8F98;
+  --charcoal:    #050506;
+  --stone:       #8A8F98;
+
+  /* Typography */
+  --font-display: 'Calistoga', serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius: 1rem; /* 16px — UI Pro Max card spec */
 }
 
 @theme inline {
-  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  --font-mono: 'Geist Mono', monospace;
-  
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
+  --font-sans:   var(--font-inter),    'Inter', system-ui, sans-serif;
+  --font-serif:  var(--font-calistoga),'Calistoga', Georgia, serif;
+
+  --color-background:       var(--background);
+  --color-foreground:       var(--foreground);
+  --color-card:             var(--card);
+  --color-card-foreground:  var(--card-foreground);
+  --color-primary:          var(--primary);
+  --color-primary-foreground:var(--primary-foreground);
+  --color-secondary:        var(--secondary);
+  --color-secondary-foreground:var(--secondary-foreground);
+  --color-muted:            var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  
-  /* Custom colors */
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
-  --color-gold: var(--gold);
+  --color-accent:           var(--accent);
+  --color-accent-foreground:var(--accent-foreground);
+  --color-border:           var(--border);
+  --color-input:            var(--input);
+  --color-ring:             var(--ring);
+
+  --color-gold:       var(--gold);
   --color-gold-light: var(--gold-light);
   --color-warm-white: var(--warm-white);
-  --color-warm-gray: var(--warm-gray);
-  --color-charcoal: var(--charcoal);
-  --color-stone: var(--stone);
-  
-  --radius-sm: 0rem;
-  --radius-md: 0rem;
-  --radius-lg: 0rem;
-  --radius-xl: 0rem;
+  --color-charcoal:   var(--charcoal);
+  --color-stone:      var(--stone);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  * { @apply border-border outline-ring/50; }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#050506] text-[#EDEDEF];
+    font-feature-settings: 'kern' 1, 'liga' 1;
   }
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 }
 
-/* Typography — Cormorant Garamond has gorgeous italics, use them sparingly */
+/* ── Typography Scale ── */
 .headline-xl {
-  @apply font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[0.92];
+  @apply font-serif text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[0.95];
 }
-
 .headline-lg {
-  @apply font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[0.98];
+  @apply font-serif text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1];
 }
-
 .headline-md {
-  @apply font-serif text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-[1.02];
+  @apply font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05];
 }
-
 .body-lg {
   @apply font-sans text-lg md:text-xl font-light leading-relaxed tracking-wide;
 }
-
 .eyebrow {
-  @apply font-sans text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium;
+  @apply font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium;
 }
-
 .link-hover {
   @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
 }
 
-/* Smooth scroll sections */
-section {
-  @apply scroll-mt-20;
-}
-
-/* Premium card hover */
-.card-premium {
-  @apply transition-all duration-500 ease-out;
-}
-
-.card-premium:hover {
-  transform: translateY(-4px);
-}
-
-/* Text balance */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Marquee animation */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-/* Line reveal animation */
-@keyframes line-reveal {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-.line-reveal {
-  animation: line-reveal 1s ease-out forwards;
-  transform-origin: left;
-}
-
-/* Stagger children animations */
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.stagger-children.animate > * {
-  animation: fade-up 0.6s ease-out forwards;
-}
-
-.stagger-children.animate > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-children.animate > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-children.animate > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-children.animate > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-children.animate > *:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes fade-up {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Image zoom on hover */
-.img-zoom {
-  @apply overflow-hidden;
-}
-
-.img-zoom img {
-  @apply transition-transform duration-700 ease-out;
-}
-
-.img-zoom:hover img {
-  transform: scale(1.05);
-}
-
-/* Accordion styling */
-.accordion-item {
-  @apply border-t border-charcoal/10 py-6 cursor-pointer;
-}
-
-.accordion-item:last-child {
-  @apply border-b;
-}
-
-/* Film grain texture for dark sections */
-.grain {
-  position: relative;
-}
+/* ── Grain texture overlay ── */
 .grain::after {
   content: '';
   position: absolute;
   inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 2;
-  opacity: 0.028;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 220px 220px;
+  z-index: 0;
+  opacity: 0.4;
 }
 
-/* Warm dark for amber sections */
-.bg-amber-dark {
-  background-color: #0E0900;
+/* ── Gold glow on buttons ── */
+.glow-gold {
+  box-shadow: 0 0 24px rgba(184,134,11,0.25), 0 0 8px rgba(184,134,11,0.1);
+}
+.glow-gold:hover {
+  box-shadow: 0 0 32px rgba(184,134,11,0.35), 0 0 12px rgba(184,134,11,0.15);
+}
+
+/* ── Card style — UI Pro Max spec ── */
+.card-dark {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+}
+.card-dark:hover {
+  border-color: rgba(255,255,255,0.11);
+  background: #0f0f12;
+}
+
+/* ── Img zoom ── */
+.img-zoom { @apply overflow-hidden; }
+.img-zoom img { @apply transition-transform duration-700 ease-out; }
+.img-zoom:hover img { transform: scale(1.04); }
+
+/* ── Animations ── */
+section { @apply scroll-mt-20; }
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+@keyframes fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Accordion ── */
+.accordion-item {
+  @apply border-t border-white/7 py-6 cursor-pointer;
+}
+.accordion-item:last-child { @apply border-b; }
+
+/* ── Text balance ── */
+.text-balance { text-wrap: balance; }
+
+/* ── Mobile touch targets ── */
+@media (max-width: 768px) {
+  .touch-target { min-height: 44px; min-width: 44px; }
 }

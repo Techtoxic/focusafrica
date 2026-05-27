@@ -105,26 +105,26 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       </div>
       
       {/* Content */}
-      <div className={`flex flex-col justify-center px-6 lg:px-16 py-12 lg:py-20 ${isEven ? "bg-[#0a0a0a]" : "bg-[#111111]"}`}>
+      <div className={`flex flex-col justify-center px-6 lg:px-16 py-12 lg:py-20 ${isEven ? "bg-[#0a0a0c]" : "bg-[#050506]"}`}>
         <p className="eyebrow mb-4 text-gold">{service.number}</p>
-        <h2 className="font-serif text-3xl lg:text-4xl text-charcoal">
+        <h2 className="font-serif text-3xl lg:text-4xl text-[#EDEDEF]">
           {service.title}
         </h2>
-        <p className="mt-6 text-base font-light leading-relaxed text-charcoal/60">
+        <p className="mt-6 text-base font-light leading-relaxed text-[#8A8F98]">
           {service.description}
         </p>
         <ul className="mt-8 space-y-4">
           {service.subServices.map((subService) => (
             <li key={subService} className="flex items-start gap-3">
               <Check className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={2} />
-              <span className="text-sm text-charcoal/70">{subService}</span>
+              <span className="text-sm text-[#8A8F98]">{subService}</span>
             </li>
           ))}
         </ul>
         <div className="mt-10">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.1em] text-charcoal transition-colors duration-300 hover:text-gold link-hover"
+            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.1em] text-[#EDEDEF] transition-colors duration-300 hover:text-gold link-hover"
           >
             Get Started
             <ArrowRight className="h-4 w-4" />
@@ -146,7 +146,7 @@ export default function ServicesPage() {
       <Navigation variant="dark" />
       <main>
         {/* Hero */}
-        <section ref={heroRef} className="relative min-h-[60vh] bg-charcoal flex items-end pb-20 lg:pb-32 pt-32">
+        <section ref={heroRef} className="relative min-h-[60vh] bg-[#050506] flex items-end pb-20 lg:pb-32 pt-32">
           <div className="absolute inset-0">
             <Image
               src="/images/services-hero.jpg"
@@ -233,7 +233,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href="/contact"
-                  className="mt-12 group inline-flex items-center gap-3 bg-gold px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-charcoal transition-all duration-300 hover:bg-gold-light"
+                  className="mt-12 group inline-flex items-center gap-3 bg-gold px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-[#050506] transition-all duration-300 hover:bg-gold-light"
                 >
                   Schedule a Consultation
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

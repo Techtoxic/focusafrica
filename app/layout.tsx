@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans, Cormorant_Garamond } from 'next/font/google'
+import { Inter, Calistoga } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const dmSans = DM_Sans({ 
+// UI Pro Max: Calistoga (display serif, warm editorial) + Inter (clean body)
+const inter = Inter({ 
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-inter',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const cormorant = Cormorant_Garamond({ 
+const calistoga = Calistoga({ 
   subsets: ['latin'],
-  variable: '--font-cormorant',
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
+  variable: '--font-calistoga',
+  weight: ['400'],
   display: 'swap',
 })
 
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0D1B2A',
+  themeColor: '#050506',
   width: 'device-width',
   initialScale: 1,
 }
@@ -50,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${cormorant.variable} bg-warm-white`}>
+    <html lang="en" className={`${inter.variable} ${calistoga.variable} bg-[#050506]`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

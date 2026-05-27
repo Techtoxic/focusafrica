@@ -77,7 +77,7 @@ export default function ContactPage() {
       <Navigation variant="dark" />
       <main>
         {/* Hero */}
-        <section ref={heroRef} className="relative bg-charcoal pt-32 pb-20 lg:pt-40 lg:pb-32">
+        <section ref={heroRef} className="relative bg-[#050506] pt-28 pb-14 lg:pt-36 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
             <div className="max-w-3xl">
               <motion.p
@@ -112,7 +112,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Section */}
-        <section ref={formRef} className="bg-warm-white py-24 lg:py-40">
+        <section ref={formRef} className="bg-[#050506] py-14 lg:py-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
               {/* Contact Info */}
@@ -123,11 +123,11 @@ export default function ContactPage() {
                 className="lg:col-span-5"
               >
                 <p className="eyebrow mb-6 text-stone">Get in Touch</p>
-                <h2 className="headline-md text-charcoal">
+                <h2 className="headline-md text-[#EDEDEF]">
                   Contact
                   <span className="italic"> information</span>
                 </h2>
-                <p className="mt-6 text-base font-light leading-relaxed text-charcoal/60">
+                <p className="mt-6 text-base font-light leading-relaxed text-[#8A8F98]">
                   Reach out through any of the channels below or fill out the form 
                   and we&apos;ll get back to you within 24 hours.
                 </p>
@@ -135,22 +135,22 @@ export default function ContactPage() {
                 <div className="mt-12 space-y-8">
                   {contactInfo.map((item) => (
                     <div key={item.label} className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-charcoal">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#B8860B]/15 border border-[#B8860B]/25">
                         <item.icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-charcoal/40">
+                        <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#8A8F98]">
                           {item.label}
                         </p>
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="mt-1 block text-lg text-charcoal transition-colors duration-300 hover:text-gold"
+                            className="mt-1 block text-lg text-[#EDEDEF] transition-colors duration-300 hover:text-[#B8860B]"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="mt-1 text-lg text-charcoal">{item.value}</p>
+                          <p className="mt-1 text-lg text-[#EDEDEF]">{item.value}</p>
                         )}
                       </div>
                     </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
 
                 {/* Social Links */}
                 <div className="mt-16 pt-12 border-t border-charcoal/10">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-charcoal/40 mb-4">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#8A8F98] mb-4">
                     Follow Us
                   </p>
                   <div className="flex gap-6">
@@ -169,7 +169,7 @@ export default function ContactPage() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-1 text-sm text-charcoal transition-colors duration-300 hover:text-gold"
+                        className="group inline-flex items-center gap-1 text-sm text-[#EDEDEF] transition-colors duration-300 hover:text-[#B8860B]"
                       >
                         {link.name}
                         <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -186,16 +186,16 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="lg:col-span-7"
               >
-                <div className="bg-warm-gray p-8 lg:p-12">
+                <div className="card-dark p-8 lg:p-12">
                   <p className="eyebrow mb-4 text-stone">Send a Message</p>
-                  <h3 className="font-serif text-2xl lg:text-3xl text-charcoal">
+                  <h3 className="font-serif text-2xl lg:text-3xl text-[#EDEDEF]">
                     Ready to experience our services?
                   </h3>
                   
                   <form onSubmit={handleSubmit} className="mt-10 space-y-8">
                     <div className="grid md:grid-cols-2 gap-8">
                       <div>
-                        <label htmlFor="name" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-charcoal/40 mb-3">
+                        <label htmlFor="name" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-[#8A8F98] mb-3">
                           Full Name
                         </label>
                         <input
@@ -205,13 +205,13 @@ export default function ContactPage() {
                           required
                           value={formState.name}
                           onChange={handleChange}
-                          className="block w-full border-0 border-b border-charcoal/20 bg-transparent px-0 py-3 text-charcoal placeholder-charcoal/30 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
+                          className="block w-full border-0 border-b border-white/15 bg-transparent px-0 py-3 text-[#EDEDEF] placeholder-white/25 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
                           placeholder="John Doe"
                         />
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-charcoal/40 mb-3">
+                        <label htmlFor="email" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-[#8A8F98] mb-3">
                           Email Address
                         </label>
                         <input
@@ -221,14 +221,14 @@ export default function ContactPage() {
                           required
                           value={formState.email}
                           onChange={handleChange}
-                          className="block w-full border-0 border-b border-charcoal/20 bg-transparent px-0 py-3 text-charcoal placeholder-charcoal/30 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
+                          className="block w-full border-0 border-b border-white/15 bg-transparent px-0 py-3 text-[#EDEDEF] placeholder-white/25 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
                           placeholder="john@example.com"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="organization" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-charcoal/40 mb-3">
+                      <label htmlFor="organization" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-[#8A8F98] mb-3">
                         Organization
                       </label>
                       <input
@@ -237,13 +237,13 @@ export default function ContactPage() {
                         name="organization"
                         value={formState.organization}
                         onChange={handleChange}
-                        className="block w-full border-0 border-b border-charcoal/20 bg-transparent px-0 py-3 text-charcoal placeholder-charcoal/30 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
+                        className="block w-full border-0 border-b border-white/15 bg-transparent px-0 py-3 text-[#EDEDEF] placeholder-white/25 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
                         placeholder="Your company or organization"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-charcoal/40 mb-3">
+                      <label htmlFor="message" className="block text-[10px] font-medium uppercase tracking-[0.15em] text-[#8A8F98] mb-3">
                         Message
                       </label>
                       <textarea
@@ -253,13 +253,13 @@ export default function ContactPage() {
                         rows={4}
                         value={formState.message}
                         onChange={handleChange}
-                        className="block w-full resize-none border-0 border-b border-charcoal/20 bg-transparent px-0 py-3 text-charcoal placeholder-charcoal/30 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
+                        className="block w-full resize-none border-0 border-b border-white/15 bg-transparent px-0 py-3 text-[#EDEDEF] placeholder-white/25 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-0"
                         placeholder="Tell us about your project or inquiry..."
                       />
                     </div>
 
                     {submitStatus === "success" && (
-                      <div className="bg-charcoal/5 p-4 text-sm text-charcoal">
+                      <div className="bg-white/5 p-4 text-sm text-[#8A8F98]">
                         Thank you for your message! We&apos;ll get back to you within 24 hours.
                       </div>
                     )}
@@ -273,7 +273,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group inline-flex items-center gap-3 bg-charcoal px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-warm-white transition-all duration-300 hover:bg-gold hover:text-charcoal disabled:cursor-not-allowed disabled:opacity-50"
+                      className="group inline-flex items-center gap-3 glow-gold rounded-xl bg-[#B8860B] px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-[#050506] transition-all duration-300 hover:bg-[#D4A949] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {isSubmitting ? "Sending..." : "Submit"}
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

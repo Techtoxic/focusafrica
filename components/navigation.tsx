@@ -32,7 +32,7 @@ export function Navigation({ variant = "dark" }: { variant?: "dark" | "light" })
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-charcoal"
+          ? "bg-[#050506]/95 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -65,7 +65,7 @@ export function Navigation({ variant = "dark" }: { variant?: "dark" | "light" })
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 border border-gold bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-gold transition-all duration-300 hover:bg-gold hover:text-charcoal"
+              className="group inline-flex items-center gap-3 rounded-xl border border-[#B8860B] bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-[#B8860B] transition-all duration-300 hover:bg-[#B8860B] hover:text-[#050506]"
             >
               Get in Touch
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -121,7 +121,7 @@ export function Navigation({ variant = "dark" }: { variant?: "dark" | "light" })
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex items-center gap-3 border border-gold px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-gold transition-all duration-200 hover:bg-gold hover:text-charcoal"
+                  className="inline-flex items-center gap-3 border border-gold px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-gold transition-all duration-200 hover:bg-[#B8860B] hover:text-[#050506]"
                 >
                   Get in Touch
                   <ArrowRight className="h-4 w-4" />
