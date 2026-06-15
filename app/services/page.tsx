@@ -1,245 +1,137 @@
-"use client"
-
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { Reveal } from "@/components/reveal"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
 import { ArrowRight, Check } from "lucide-react"
+import { servicesPage, servicesDetailed, images } from "@/lib/content"
+import type { Metadata } from "next"
 
-const services = [
-  {
-    id: "agriculture",
-    number: "01",
-    title: "Agriculture, Environment & Climate",
-    description: "Comprehensive solutions to address climate change and promote sustainable agricultural practices across the African continent. We help organizations build resilience and drive positive environmental impact.",
-    image: "/images/service-agriculture.jpg",
-    subServices: [
-      "Climate Change Adaptation strategies",
-      "Capacity Building for NGOs and government",
-      "Research and Innovation in carbon sequestration",
-      "Support for Farmers and Pastoralists",
-    ],
-  },
-  {
-    id: "research",
-    number: "02",
-    title: "Research & Development",
-    description: "Driving innovation through comprehensive research services that help organizations stay ahead of the curve. Our data-driven approach ensures informed decision-making.",
-    image: "/images/service-research.jpg",
-    subServices: [
-      "Customer Ecosystem Analysis",
-      "Innovation Roadmaps development",
-      "Process Optimization strategies",
-      "Continuous Learning implementation",
-    ],
-  },
-  {
-    id: "training",
-    number: "03",
-    title: "Training & Capacity Development",
-    description: "Empowering teams with the knowledge and skills needed to excel in today's competitive landscape. We design tailored programs for lasting organizational growth.",
-    image: "/images/service-training.jpg",
-    subServices: [
-      "Corporate Governance training",
-      "Agriculture & Agribusiness programs",
-      "Finance & Administration workshops",
-      "Team Building and Leadership",
-    ],
-  },
-  {
-    id: "finance",
-    number: "04",
-    title: "Finance & Administration",
-    description: "Robust financial management and administrative support to ensure organizational health and sustainability. We bring clarity and efficiency to your operations.",
-    image: "/images/service-finance.jpg",
-    subServices: [
-      "Fund Management services",
-      "Financial Administration support",
-      "Donor Fund Management",
-      "Organizational Health Checks",
-    ],
-  },
-  {
-    id: "monitoring",
-    number: "05",
-    title: "Monitoring & Evaluation",
-    description: "Data-driven insights to measure impact and ensure programs achieve their intended outcomes. Track progress and demonstrate results with precision.",
-    image: "/images/service-monitoring.jpg",
-    subServices: [
-      "Indicator Development frameworks",
-      "Stakeholder Engagement strategies",
-      "M&E System Design",
-      "Impact Measurement",
-    ],
-  },
-]
-
-function ServiceCard({ service, index }: { service: typeof services[0], index: number }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const isEven = index % 2 === 0
-
-  return (
-    <motion.div
-      ref={ref}
-      id={service.id}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8 }}
-      className="grid lg:grid-cols-2 gap-12 lg:gap-0"
-    >
-      {/* Image */}
-      <div className={`relative aspect-[4/3] lg:aspect-auto lg:min-h-[600px] overflow-hidden img-zoom ${isEven ? "" : "lg:order-2"}`}>
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
-        <span className="absolute bottom-8 left-8 font-serif text-8xl text-warm-white/10">
-          {service.number}
-        </span>
-      </div>
-      
-      {/* Content */}
-      <div className={`flex flex-col justify-center px-6 lg:px-16 py-12 lg:py-20 ${isEven ? "bg-[#0a0a0c]" : "bg-[#050506]"}`}>
-        <p className="eyebrow mb-4 text-gold">{service.number}</p>
-        <h2 className="font-serif text-3xl lg:text-4xl text-[#EDEDEF]">
-          {service.title}
-        </h2>
-        <p className="mt-6 text-base font-light leading-relaxed text-[#8A8F98]">
-          {service.description}
-        </p>
-        <ul className="mt-8 space-y-4">
-          {service.subServices.map((subService) => (
-            <li key={subService} className="flex items-start gap-3">
-              <Check className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={2} />
-              <span className="text-sm text-[#8A8F98]">{subService}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-10">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.1em] text-[#EDEDEF] transition-colors duration-300 hover:text-gold link-hover"
-          >
-            Get Started
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-    </motion.div>
-  )
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Comprehensive consultancy services for African organizations: agriculture & climate, research & development, training & capacity, finance & administration, and monitoring & evaluation.",
 }
 
 export default function ServicesPage() {
-  const heroRef = useRef(null)
-  const ctaRef = useRef(null)
-  const isHeroInView = useInView(heroRef, { once: true })
-  const isCtaInView = useInView(ctaRef, { once: true, margin: "-100px" })
-
   return (
     <>
-      <Navigation variant="dark" />
+      <Navigation />
       <main>
         {/* Hero */}
-        <section ref={heroRef} className="relative min-h-[60vh] bg-[#050506] flex items-end pb-20 lg:pb-32 pt-32">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/services-hero.jpg"
-              alt=""
-              fill
-              className="object-cover opacity-30"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
-          </div>
-          
-          <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12 w-full">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="eyebrow mb-6 text-gold"
-            >
-              What We Offer
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="headline-xl text-warm-white max-w-4xl"
-            >
-              Comprehensive
-              <br />
-              <span className="italic">consultancy services</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 max-w-xl text-lg font-light text-warm-white/60"
-            >
-              Tailored solutions designed to address the unique challenges 
-              facing African organizations and businesses.
-            </motion.p>
+        <section className="bg-paper pt-28 lg:pt-36">
+          <div className="container-x">
+            <div className="grid items-center gap-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:pb-24">
+              <div className="lg:col-span-7">
+                <Reveal className="flex items-center gap-3">
+                  <span className="rule" />
+                  <p className="eyebrow text-brass-dark">{servicesPage.hero.eyebrow}</p>
+                </Reveal>
+                <Reveal delay={0.05}>
+                  <h1 className="h-display mt-6 text-navy text-balance">
+                    {servicesPage.hero.headingLead}{" "}
+                    <span className="italic text-brass-dark">{servicesPage.hero.headingAccent}</span>
+                  </h1>
+                </Reveal>
+                <Reveal delay={0.12}>
+                  <p className="lede mt-7 max-w-xl">{servicesPage.hero.body}</p>
+                </Reveal>
+              </div>
+              <Reveal delay={0.2} className="lg:col-span-5">
+                <div className="img-zoom relative aspect-[4/3] overflow-hidden border border-line">
+                  <Image
+                    src={images.research}
+                    alt="Focus Africa Leadership analysts reviewing research findings"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 
-        {/* Services List */}
-        <section>
-          {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
-          ))}
+        {/* Services */}
+        <section className="border-t border-line bg-paper-alt">
+          <div className="container-x divide-y divide-line">
+            {servicesDetailed.map((s, i) => {
+              const flip = i % 2 === 1
+              return (
+                <div key={s.id} id={s.id} className="scroll-mt-28 py-16 lg:py-20">
+                  <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+                    <Reveal className={`lg:col-span-6 ${flip ? "lg:order-2" : ""}`}>
+                      <div className="img-zoom relative aspect-[4/3] overflow-hidden border border-line">
+                        <Image
+                          src={s.image}
+                          alt={s.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                        <span className="absolute bottom-4 left-5 font-serif text-6xl text-white/80 mix-blend-overlay">
+                          {s.number}
+                        </span>
+                      </div>
+                    </Reveal>
+                    <div className={`lg:col-span-6 ${flip ? "lg:order-1" : ""}`}>
+                      <Reveal>
+                        <p className="eyebrow text-brass-dark">Service {s.number}</p>
+                        <h2 className="h2 mt-4 text-navy">{s.title}</h2>
+                        <p className="mt-5 text-base leading-relaxed text-muted lg:text-[17px]">
+                          {s.description}
+                        </p>
+                      </Reveal>
+                      <Reveal delay={0.08}>
+                        <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                          {s.subServices.map((sub) => (
+                            <li key={sub} className="flex items-start gap-3">
+                              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center bg-brass-soft">
+                                <Check className="h-3 w-3 text-brass-dark" strokeWidth={3} />
+                              </span>
+                              <span className="text-sm text-ink/80">{sub}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </Reveal>
+                      <Reveal delay={0.14}>
+                        <Link href="/contact" className="btn btn-outline group mt-8">
+                          Get Started
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </Link>
+                      </Reveal>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </section>
 
         {/* CTA */}
-        <section ref={ctaRef} className="bg-[#0d0d0d] py-16 lg:py-24">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6 }}
-                className="eyebrow mb-6 text-gold"
-              >
-                Get Started
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="headline-lg text-warm-white"
-              >
-                Ready to transform
-                <br />
-                <span className="italic">your organization?</span>
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-8 text-lg font-light leading-relaxed text-warm-white/50 max-w-xl mx-auto"
-              >
-                Let&apos;s discuss how our services can help you achieve your goals 
-                and drive sustainable growth across Africa.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <Link
-                  href="/contact"
-                  className="mt-12 group inline-flex items-center gap-3 bg-gold px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-[#050506] transition-all duration-300 hover:bg-gold-light"
-                >
-                  Schedule a Consultation
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </motion.div>
-            </div>
+        <section className="bg-navy py-20 lg:py-24">
+          <div className="container-x text-center">
+            <Reveal className="flex items-center justify-center gap-3">
+              <span className="rule" />
+              <p className="eyebrow text-brass">{servicesPage.cta.eyebrow}</p>
+              <span className="rule" />
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="h-display mx-auto mt-6 max-w-3xl text-white">
+                {servicesPage.cta.headingLead}{" "}
+                <span className="italic text-brass">{servicesPage.cta.headingAccent}</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="mx-auto mt-6 max-w-xl text-lg font-light text-white/70">{servicesPage.cta.body}</p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <Link href={servicesPage.cta.primaryCta.href} className="btn btn-brass group mt-9">
+                {servicesPage.cta.primaryCta.label}
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </Reveal>
           </div>
         </section>
       </main>

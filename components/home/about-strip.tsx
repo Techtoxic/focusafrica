@@ -2,118 +2,78 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
 import { ArrowRight } from "lucide-react"
+import { Reveal } from "@/components/reveal"
+import { aboutStrip, images } from "@/lib/content"
 
 export function AboutStrip() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
-
   return (
-    <section ref={ref} className="relative bg-[#050506] py-16 lg:py-24 overflow-hidden">
-      {/* Ambient glow — UI Pro Max spec */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_70%_50%,rgba(184,134,11,0.04),transparent)] pointer-events-none" />
-
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-12">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-
-          {/* Image — rounded-2xl, contained aspect ratio */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative order-2 lg:order-1"
-          >
-            {/* Rounded image container — no excess space */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl img-zoom">
+    <section className="bg-paper py-20 lg:py-28">
+      <div className="container-x">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Image */}
+          <Reveal className="relative lg:col-span-6">
+            <div className="img-zoom relative aspect-[4/3] overflow-hidden border border-line">
               <Image
-                src="/images/about-preview.jpg"
-                alt="Focus Africa Leadership team"
+                src={images.team}
+                alt="The Focus Africa Leadership advisory team collaborating in their Nairobi office"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              {/* Vignette for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050506]/40 via-transparent to-transparent" />
             </div>
-
-            {/* Year badge — floated cleanly */}
-            <div className="absolute bottom-4 right-4 rounded-xl bg-[#0a0a0c]/90 backdrop-blur-sm border border-white/8 px-4 py-3">
-              <span className="block font-serif text-2xl text-[#B8860B] leading-none">2016</span>
-              <span className="block text-[9px] uppercase tracking-[0.2em] text-white/40 mt-1">Founded</span>
+            <div className="absolute -bottom-5 right-6 hidden border border-line bg-white px-6 py-4 shadow-lg sm:block">
+              <span className="block font-serif text-2xl text-navy leading-none">
+                {aboutStrip.foundedYear}
+              </span>
+              <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.18em] text-brass-dark">
+                Founded
+              </span>
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Content */}
-          <div className="order-1 lg:order-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="h-px w-8 bg-[#B8860B]" />
-              <p className="eyebrow text-[#B8860B]">About Us</p>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 36 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="headline-lg text-[#EDEDEF]"
-            >
-              The journey behind<br />
-              <span className="italic text-[#B8860B]">Focus Africa</span>
-            </motion.h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 space-y-4"
-            >
-              <p className="text-base lg:text-lg font-light leading-relaxed text-[#8A8F98]">
-                Founded with a vision to drive sustainable growth, innovation, and empowerment 
-                across Africa&apos;s unique business landscape — from Nairobi to the whole continent.
-              </p>
-              <p className="text-base lg:text-lg font-light leading-relaxed text-[#8A8F98]">
-                With experienced professionals, we deliver unparalleled results and create 
-                lasting impact for every individual and organization we partner with.
-              </p>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8 pt-8 border-t border-white/7 grid grid-cols-2 gap-8"
-            >
-              <div>
-                <span className="block font-serif text-4xl text-[#EDEDEF]">28</span>
-                <span className="mt-1 block text-[10px] uppercase tracking-[0.2em] text-[#8A8F98]">African countries</span>
+          <div className="lg:col-span-6">
+            <Reveal className="flex items-center gap-3">
+              <span className="rule" />
+              <p className="eyebrow text-brass-dark">{aboutStrip.eyebrow}</p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="h1 mt-6 text-navy">
+                {aboutStrip.headingLead}{" "}
+                <span className="italic text-brass-dark">{aboutStrip.headingAccent}</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <div className="mt-6 space-y-5">
+                {aboutStrip.paragraphs.map((p, i) => (
+                  <p key={i} className="text-base leading-relaxed text-muted lg:text-[17px]">
+                    {p}
+                  </p>
+                ))}
               </div>
-              <div>
-                <span className="block font-serif text-4xl text-[#EDEDEF]">500+</span>
-                <span className="mt-1 block text-[10px] uppercase tracking-[0.2em] text-[#8A8F98]">Projects delivered</span>
-              </div>
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.35 }}
-            >
-              <Link
-                href="/about"
-                className="mt-8 inline-flex items-center gap-3 border border-white/15 rounded-xl px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[#EDEDEF] transition-all duration-300 hover:border-[#B8860B] hover:text-[#B8860B] touch-target"
-              >
-                Our Full Story
-                <ArrowRight className="h-3.5 w-3.5" />
+            <Reveal delay={0.2}>
+              <div className="mt-8 grid grid-cols-2 gap-8 border-t border-line pt-8">
+                {aboutStrip.miniStats.map((s) => (
+                  <div key={s.label}>
+                    <span className="block font-serif text-4xl text-navy">{s.number}</span>
+                    <span className="mt-1 block text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
+                      {s.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.26}>
+              <Link href={aboutStrip.cta.href} className="btn btn-outline group mt-9">
+                {aboutStrip.cta.label}
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-            </motion.div>
+            </Reveal>
           </div>
-
         </div>
       </div>
     </section>
