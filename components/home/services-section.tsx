@@ -1,148 +1,80 @@
 "use client"
 
 import Link from "next/link"
-import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
-import { ArrowRight, Plus, Minus } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
+import { Reveal } from "@/components/reveal"
+import { homeServices, homeServicesHeader } from "@/lib/content"
 
-const services = [
-  {
-    id: "01",
-    title: "Agriculture, Environment & Climate",
-    description: "Comprehensive solutions to address climate change and promote sustainable agricultural practices across Africa. We partner with organizations to implement regenerative farming, conservation strategies, and climate resilience programs.",
-    href: "/services#agriculture",
-  },
-  {
-    id: "02",
-    title: "Research & Development",
-    description: "Customer ecosystem analysis, innovation roadmaps, and process optimization for continuous improvement. Our research-driven approach ensures data-backed decisions and strategic insights.",
-    href: "/services#research",
-  },
-  {
-    id: "03",
-    title: "Training & Capacity Development",
-    description: "Corporate governance, agriculture training, finance administration, and expert-led team building programs designed to elevate organizational capabilities and leadership potential.",
-    href: "/services#training",
-  },
-  {
-    id: "04",
-    title: "Finance & Administration",
-    description: "Fund management, financial administration, donor fund management, and organizational health checks. We bring financial clarity and operational excellence to every engagement.",
-    href: "/services#finance",
-  },
-  {
-    id: "05",
-    title: "Monitoring & Evaluation",
-    description: "Indicator development, stakeholder engagement, M&E system design, and impact measurement. Track progress and demonstrate results with our comprehensive evaluation frameworks.",
-    href: "/services#monitoring",
-  },
+const accents = [
+  { dot: "bg-terracotta", text: "text-terracotta", soft: "bg-terracotta/10" },
+  { dot: "bg-ochre", text: "text-ochre-dark", soft: "bg-ochre/15" },
+  { dot: "bg-forest", text: "text-forest", soft: "bg-forest/10" },
+  { dot: "bg-terracotta", text: "text-terracotta", soft: "bg-terracotta/10" },
+  { dot: "bg-ochre", text: "text-ochre-dark", soft: "bg-ochre/15" },
 ]
 
-function ServiceAccordion({ service, isOpen, onClick }: { service: typeof services[0], isOpen: boolean, onClick: () => void }) {
+export function ServicesSection() {
   return (
-    <motion.div
-      className="border-t border-white/7 cursor-pointer group"
-      onClick={onClick}
-    >
-      <div className="flex items-start justify-between py-6 lg:py-7">
-        <div className="flex items-start gap-5 lg:gap-10 flex-1 min-w-0">
-          <span className="font-serif text-sm text-white/20 pt-1 shrink-0">{service.id}</span>
-          <div className="flex-1 min-w-0">
-            <h3 className={`font-serif text-xl lg:text-2xl xl:text-3xl transition-colors duration-300 font-normal ${isOpen ? 'text-[#B8860B]' : 'text-[#EDEDEF] group-hover:text-[#EDEDEF]/80'}`}>
-              {service.title}
-            </h3>
-            <motion.div
-              initial={false}
-              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden"
-            >
-              <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-[#8A8F98]">
-                {service.description}
+    <section className="border-y border-line bg-cream-2 py-20 lg:py-28">
+      <div className="container-x">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <Reveal>
+              <p className="eyebrow text-terracotta-dark">{homeServicesHeader.eyebrow}</p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h2 className="h1 mt-4 text-ink">
+                {homeServicesHeader.headingLead}{" "}
+                <span className="italic text-terracotta">{homeServicesHeader.headingAccent}</span>
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
+            <Link href={homeServicesHeader.cta.href} className="btn btn-forest group">
+              {homeServicesHeader.cta.label}
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {homeServices.map((s, i) => {
+            const a = accents[i % accents.length]
+            return (
+              <Reveal key={s.id} delay={0.05 * i} className="h-full">
+                <Link
+                  href={s.href}
+                  className="group flex h-full flex-col rounded-2xl border border-line bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(28,20,13,0.35)]"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className={`flex h-12 w-12 items-center justify-center rounded-full ${a.soft} font-display text-lg font-semibold ${a.text}`}>
+                      {s.id}
+                    </span>
+                    <ArrowUpRight className="h-5 w-5 text-ink/20 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-terracotta" />
+                  </div>
+                  <h3 className="mt-6 font-display text-xl font-medium leading-snug text-ink lg:text-2xl">{s.title}</h3>
+                  <span className={`mt-3 h-1 w-10 rounded-full ${a.dot} transition-all duration-300 group-hover:w-16`} />
+                  <p className="mt-4 text-[15px] leading-relaxed text-muted">{s.description}</p>
+                </Link>
+              </Reveal>
+            )
+          })}
+          {/* feature cell */}
+          <Reveal delay={0.05 * homeServices.length} className="h-full">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-forest p-8 text-[#fff7ee]">
+              <div className="pointer-events-none absolute -right-8 -bottom-8 h-40 w-40 text-[#fff7ee]/8 pattern-dots" aria-hidden />
+              <p className="relative font-display text-2xl font-medium leading-snug">
+                Every engagement is rooted in the African context.
               </p>
               <Link
-                href={service.href}
-                className="mt-5 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-[#B8860B] transition-colors duration-300 hover:text-[#D4A949]"
-                onClick={(e) => e.stopPropagation()}
+                href={homeServicesHeader.cta.href}
+                className="relative mt-6 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-ochre transition-colors hover:text-[#fff7ee]"
               >
-                Learn More
-                <ArrowRight className="h-3 w-3" />
+                View all services
+                <ArrowRight className="h-3.5 w-3.5" />
               </Link>
-            </motion.div>
-          </div>
-        </div>
-        <button className={`mt-1 ml-4 p-1.5 shrink-0 transition-colors duration-300 touch-target ${isOpen ? 'text-[#B8860B]' : 'text-white/20 group-hover:text-white/50'}`}>
-          {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-        </button>
-      </div>
-    </motion.div>
-  )
-}
-
-export function ServicesSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-
-  return (
-    <section ref={ref} className="bg-[#0a0a0c] py-16 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20">
-          {/* Left — sticky header */}
-          <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-28">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6 }}
-                className="flex items-center gap-3 mb-6"
-              >
-                <div className="h-px w-8 bg-[#B8860B]" />
-                <p className="eyebrow text-[#B8860B]">Our Services</p>
-              </motion.div>
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="headline-md text-[#EDEDEF]"
-              >
-                Solutions for
-                <span className="italic text-[#B8860B]"> Africa&apos;s growth</span>
-              </motion.h2>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Link
-                  href="/services"
-                  className="mt-7 inline-flex items-center gap-3 rounded-xl border border-[#B8860B]/40 px-6 py-3 text-[11px] font-medium uppercase tracking-[0.15em] text-[#B8860B] transition-all duration-300 hover:bg-[#B8860B] hover:text-[#050506] touch-target"
-                >
-                  View All Services
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </motion.div>
             </div>
-          </div>
-
-          {/* Right — accordion */}
-          <div className="lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="border-b border-white/7"
-            >
-              {services.map((service, index) => (
-                <ServiceAccordion
-                  key={service.id}
-                  service={service}
-                  isOpen={openIndex === index}
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                />
-              ))}
-            </motion.div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

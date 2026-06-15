@@ -1,106 +1,99 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
+import { Parallax } from "@/components/reveal"
+import { hero, images } from "@/lib/content"
+
+const ease = [0.16, 1, 0.3, 1] as const
 
 export function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, 180])
-  const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
-
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-charcoal">
-      {/* Background Image with Parallax */}
-      <motion.div 
-        style={{ y }}
-        className="absolute inset-0"
-      >
-        <Image
-          src="/images/hero-bg.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-35"
-        />
-        {/* Gradient: heavier at bottom so text pops */}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/20 to-charcoal/95" />
-      </motion.div>
+    <section className="relative overflow-hidden bg-cream pt-28 lg:pt-36">
+      {/* structural geometry */}
+      <div className="pointer-events-none absolute -right-24 -top-10 h-[34rem] w-[34rem] rounded-full bg-ochre/15" aria-hidden />
+      <div className="pointer-events-none absolute right-1/3 top-24 hidden h-40 w-40 text-terracotta/20 pattern-dots lg:block" aria-hidden />
 
-      {/* Thin gold accent line top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gold/40 z-20" />
-
-      {/* Content */}
-      <motion.div 
-        style={{ opacity }}
-        className="relative z-10 flex min-h-screen flex-col justify-end pb-20 lg:pb-28"
-      >
-        <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mb-6 flex items-center gap-4"
-          >
-            <div className="h-px w-10 bg-gold" />
-            <p className="eyebrow text-gold">Strategic Consultancy</p>
-          </motion.div>
-
-          {/* Main Headline — italic only on the last line for impact */}
-          <motion.h1
-            initial={{ opacity: 0, y: 48 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="headline-xl text-warm-white"
-          >
-            <span className="block font-light">Empowering</span>
-            <span className="block font-light">Africa&apos;s</span>
-            <span className="block italic text-gold/90">future leaders</span>
-          </motion.h1>
-
-          {/* Subtext and CTA Row */}
-          <div className="mt-10 lg:mt-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+      <div className="container-x relative">
+        <div className="grid items-center gap-12 pb-20 lg:grid-cols-12 lg:gap-12 lg:pb-28">
+          <div className="lg:col-span-6">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              className="max-w-sm text-base lg:text-lg font-light leading-relaxed text-warm-white/55 tracking-wide"
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 rounded-full bg-terracotta/10 px-4 py-1.5"
             >
-              Strategic solutions for sustainable growth across the continent. 
-              We partner with visionary organizations to unlock Africa&apos;s potential.
+              <span className="h-2 w-2 rounded-full bg-terracotta" />
+              <p className="eyebrow text-terracotta-dark">{hero.eyebrow}</p>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 34 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.08, ease }}
+              className="display mt-6 text-ink text-balance"
+            >
+              {hero.lines[0]} {hero.lines[1]}{" "}
+              <span className="italic text-terracotta">{hero.lines[2]}</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.22 }}
+              className="lede mt-7 max-w-xl"
+            >
+              {hero.body}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.75 }}
-              className="flex flex-wrap items-center gap-5"
+              transition={{ duration: 0.7, delay: 0.34 }}
+              className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4"
             >
-              <Link
-                href="/services"
-                className="group inline-flex items-center gap-3 bg-gold px-8 py-4 text-[11px] font-medium uppercase tracking-[0.18em] text-charcoal transition-all duration-300 hover:bg-gold-light"
-              >
-                Explore Services
+              <Link href={hero.primaryCta.href} className="btn btn-terra group">
+                {hero.primaryCta.label}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-              <Link
-                href="/about"
-                className="text-sm font-light text-warm-white/50 transition-colors duration-300 hover:text-warm-white link-hover"
-              >
-                Our story
+              <Link href={hero.secondaryCta.href} className="ul-link font-sans text-sm font-semibold uppercase tracking-[0.08em] text-ink">
+                {hero.secondaryCta.label}
               </Link>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.25, ease }}
+            className="relative lg:col-span-6"
+          >
+            {/* color block behind */}
+            <div className="absolute -left-4 top-6 h-full w-full rounded-t-[14rem] rounded-b-2xl bg-forest" aria-hidden />
+            <Parallax className="img-zoom relative aspect-[4/5] overflow-hidden mask-arch-lg">
+              <Image
+                src={images.heroBoardroom}
+                alt="Focus Africa Leadership advisors in a strategy session in a Nairobi boardroom"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Parallax>
+            {/* floating tag */}
+            <div className="absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl bg-ochre px-5 py-4 shadow-xl">
+              <span className="font-display text-3xl font-semibold leading-none text-ink">28</span>
+              <span className="text-[11px] font-bold uppercase leading-tight tracking-[0.12em] text-ink/70">
+                African
+                <br />
+                countries
+              </span>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

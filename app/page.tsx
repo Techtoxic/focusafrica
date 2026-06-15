@@ -12,7 +12,7 @@ import { CTABanner } from "@/components/home/cta-banner"
 export default function HomePage() {
   return (
     <>
-      <Navigation variant="dark" />
+      <Navigation />
       <main>
         <HeroSection />
         <StatsSection />
