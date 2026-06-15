@@ -3,169 +3,158 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ─────────────────────────────────────────────────────────────
+   Variant 2 — Modern Boutique
+   Near-monochrome bone base, oversized type, one electric accent.
+   Editorial, asymmetric, design-studio polish.
+   ───────────────────────────────────────────────────────────── */
 :root {
-  /* ── OLED Dark Cinema + Gold ── UI Pro Max: Dark Mode (OLED) */
-  --background: #050506;
-  --foreground: #EDEDEF;
-  --card: #0a0a0c;
-  --card-foreground: #EDEDEF;
-  --popover: #0a0a0c;
-  --popover-foreground: #EDEDEF;
-  --primary: #B8860B;
-  --primary-foreground: #050506;
-  --secondary: #111113;
-  --secondary-foreground: #EDEDEF;
-  --muted: #111113;
-  --muted-foreground: #8A8F98;
-  --accent: #B8860B;
-  --accent-foreground: #050506;
-  --destructive: #DC2626;
-  --destructive-foreground: #FAFAFA;
-  --border: rgba(255,255,255,0.07);
-  --input: #111113;
-  --ring: #B8860B;
-  
-  /* Design Tokens — UI Pro Max Cinema Dark */
-  --bg-deep:     #020203;
-  --bg-base:     #050506;
-  --bg-elevated: #0a0a0c;
-  --bg-surface:  #111113;
+  --bone:     #f4f3ef;
+  --bone-2:   #eceae3;
+  --bone-3:   #e3e0d7;
+  --ink:      #111111;
+  --ink-2:    #2b2b29;
+  --muted:    #6b6b64;
+  --line:     #dcd9cf;
+  --accent:   #2540ff;   /* electric blue — the single brand carrier */
+  --accent-600:#1a30d6;
 
-  --gold:        #B8860B;
-  --gold-light:  #D4A949;
-  --gold-glow:   rgba(184,134,11,0.18);
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--bone-2);
+  --secondary-foreground: var(--ink);
+  --muted-foreground: var(--muted);
+  --accent-foreground: #ffffff;
+  --destructive: #d92d20;
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--accent);
 
-  --warm-white:  #EDEDEF;
-  --muted-text:  #8A8F98;
-  --charcoal:    #050506;
-  --stone:       #8A8F98;
-
-  /* Typography */
-  --font-display: 'Calistoga', serif;
-  --font-body:    'Inter', sans-serif;
-
-  --radius: 1rem; /* 16px — UI Pro Max card spec */
+  --radius: 1.5rem;
 }
 
 @theme inline {
-  --font-sans:   var(--font-inter),    'Inter', system-ui, sans-serif;
-  --font-serif:  var(--font-calistoga),'Calistoga', Georgia, serif;
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-grotesk), 'Space Grotesk', system-ui, sans-serif;
 
-  --color-background:       var(--background);
-  --color-foreground:       var(--foreground);
-  --color-card:             var(--card);
-  --color-card-foreground:  var(--card-foreground);
-  --color-primary:          var(--primary);
-  --color-primary-foreground:var(--primary-foreground);
-  --color-secondary:        var(--secondary);
-  --color-secondary-foreground:var(--secondary-foreground);
-  --color-muted:            var(--muted);
+  --color-bone:    var(--bone);
+  --color-bone-2:  var(--bone-2);
+  --color-bone-3:  var(--bone-3);
+  --color-ink:     var(--ink);
+  --color-ink-2:   var(--ink-2);
+  --color-muted:   var(--muted);
+  --color-line:    var(--line);
+  --color-accent:  var(--accent);
+  --color-accent-600: var(--accent-600);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent:           var(--accent);
-  --color-accent-foreground:var(--accent-foreground);
-  --color-border:           var(--border);
-  --color-input:            var(--input);
-  --color-ring:             var(--ring);
-
-  --color-gold:       var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-warm-white: var(--warm-white);
-  --color-charcoal:   var(--charcoal);
-  --color-stone:      var(--stone);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
   --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
 }
 
 @layer base {
-  * { @apply border-border outline-ring/50; }
+  * { @apply border-border; }
   body {
-    @apply bg-[#050506] text-[#EDEDEF];
-    font-feature-settings: 'kern' 1, 'liga' 1;
+    @apply bg-bone text-ink;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1;
+    -webkit-font-smoothing: antialiased;
   }
   html { scroll-behavior: smooth; }
+  ::selection { background: var(--accent); color: #fff; }
 }
 
-/* ── Typography Scale ── */
-.headline-xl {
-  @apply font-serif text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[0.95];
+/* ── Typography — oversized, confident ── */
+.font-display { font-family: var(--font-display); }
+
+.display {
+  font-family: var(--font-display);
+  @apply text-[3.25rem] leading-[0.94] tracking-[-0.03em] font-semibold sm:text-7xl lg:text-[6.5rem] xl:text-[7.5rem];
 }
-.headline-lg {
-  @apply font-serif text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1];
+.h1 {
+  font-family: var(--font-display);
+  @apply text-4xl sm:text-5xl lg:text-[4.25rem] leading-[0.98] tracking-[-0.025em] font-semibold;
 }
-.headline-md {
-  @apply font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05];
+.h2 {
+  font-family: var(--font-display);
+  @apply text-3xl sm:text-4xl lg:text-5xl leading-[1.02] tracking-[-0.02em] font-semibold;
 }
-.body-lg {
-  @apply font-sans text-lg md:text-xl font-light leading-relaxed tracking-wide;
+.h3 {
+  font-family: var(--font-display);
+  @apply text-2xl lg:text-3xl leading-tight tracking-[-0.01em] font-medium;
 }
 .eyebrow {
-  @apply font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium;
+  font-family: var(--font-display);
+  @apply text-[12px] uppercase tracking-[0.14em] font-medium;
 }
-.link-hover {
-  @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+.lede { @apply font-sans text-lg lg:text-xl font-light leading-relaxed text-ink-2; }
+
+/* ── Buttons ── */
+.btn {
+  @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300;
+  font-family: var(--font-display);
+}
+.btn-ink { @apply bg-ink text-white hover:bg-ink-2; }
+.btn-accent { @apply bg-accent text-white hover:bg-accent-600; }
+.btn-ghost { @apply border border-ink/15 text-ink hover:border-ink hover:bg-ink hover:text-white; }
+.btn-ghost-light { @apply border border-white/30 text-white hover:bg-white hover:text-ink; }
+
+.container-x { @apply mx-auto max-w-[1320px] px-6 lg:px-12; }
+
+/* ── Underline link ── */
+.ul-link {
+  @apply relative after:absolute after:bottom-[-3px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
 }
 
-/* ── Grain texture overlay ── */
-.grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
+/* ── Image treatments ── */
+/* duotone (ink ↔ electric blue), for hero/CTA drama */
+.duo { position: relative; isolation: isolate; }
+.duo > img { filter: grayscale(1) contrast(1.06) brightness(1.02); }
+.duo::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: var(--accent); mix-blend-mode: color; opacity: 0.62;
+}
+.duo::before {
+  content: ""; position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg, rgba(17,17,17,0) 40%, rgba(17,17,17,0.45) 100%);
 }
 
-/* ── Gold glow on buttons ── */
-.glow-gold {
-  box-shadow: 0 0 24px rgba(184,134,11,0.25), 0 0 8px rgba(184,134,11,0.1);
-}
-.glow-gold:hover {
-  box-shadow: 0 0 32px rgba(184,134,11,0.35), 0 0 12px rgba(184,134,11,0.15);
-}
+/* soft monochrome that warms to full colour on hover (micro-interaction) */
+.soft img { filter: grayscale(0.55) contrast(1.03); transition: filter 0.6s ease; }
+.soft:hover img { filter: grayscale(0); }
 
-/* ── Card style — UI Pro Max spec ── */
-.card-dark {
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius);
-}
-.card-dark:hover {
-  border-color: rgba(255,255,255,0.11);
-  background: #0f0f12;
-}
-
-/* ── Img zoom ── */
 .img-zoom { @apply overflow-hidden; }
-.img-zoom img { @apply transition-transform duration-700 ease-out; }
-.img-zoom:hover img { transform: scale(1.04); }
+.img-zoom img { @apply transition-transform duration-[900ms] ease-out; }
+.img-zoom:hover img { transform: scale(1.05); }
 
-/* ── Animations ── */
-section { @apply scroll-mt-20; }
+/* ── Marquee ── */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 32s linear infinite; }
 
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee { animation: marquee 30s linear infinite; }
-
-@keyframes fade-up {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Accordion ── */
-.accordion-item {
-  @apply border-t border-white/7 py-6 cursor-pointer;
-}
-.accordion-item:last-child { @apply border-b; }
-
-/* ── Text balance ── */
+section { scroll-margin-top: 6rem; }
 .text-balance { text-wrap: balance; }
 
-/* ── Mobile touch targets ── */
 @media (max-width: 768px) {
   .touch-target { min-height: 44px; min-width: 44px; }
 }
