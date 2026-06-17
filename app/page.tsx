@@ -13,7 +13,12 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="relative overflow-hidden">
+        {/* Page-wide faded grid backdrop */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 text-ink/[0.05] pattern-grid-page"
+        />
         <HeroSection />
         <StatsSection />
         <ClientsMarquee />

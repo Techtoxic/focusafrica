@@ -227,3 +227,13 @@ section { scroll-margin-top: 6rem; }
 @media (max-width: 768px) {
   .touch-target { min-height: 44px; min-width: 44px; }
 }
+
+/* ── Page-wide faded grid backdrop ── */
+.pattern-grid-page {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 75%, transparent 100%);
+}
