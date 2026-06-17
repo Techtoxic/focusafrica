@@ -58,17 +58,17 @@ export const hero = {
 
 // ── Home + About: stats ──
 export const homeStats = [
-  { number: 15, suffix: "+", label: "Years of Excellence", sub: "Est. 2016" },
-  { number: 500, suffix: "+", label: "Projects Delivered", sub: "Across the continent" },
-  { number: 28, suffix: "", label: "African Countries", sub: "Active presence" },
-  { number: 98, suffix: "%", label: "Client Retention", sub: "Year over year" },
+  { number: 14, suffix: "", label: "Years of Excellence", sub: "Est. 2012" },
+  { number: 128, suffix: "", label: "Projects Delivered", sub: "Across the continent" },
+  { number: 40, suffix: "", label: "African Countries", sub: "Active presence" },
+  { number: 10000, suffix: "+", label: "Lives Transformed", sub: "And counting" },
 ]
 
 export const aboutStats = [
-  { number: "15+", label: "Years of Excellence" },
-  { number: "500+", label: "Projects Delivered" },
-  { number: "28", label: "African Countries" },
-  { number: "98%", label: "Client Retention" },
+  { number: "14", label: "Years of Excellence" },
+  { number: "128", label: "Projects Delivered" },
+  { number: "40", label: "African Countries" },
+  { number: "10,000+", label: "Lives Transformed" },
 ]
 
 export const clients = [
@@ -92,10 +92,10 @@ export const aboutStrip = {
     "With experienced professionals, we deliver unparalleled results and create lasting impact for every individual and organization we partner with.",
   ],
   miniStats: [
-    { number: "28", label: "African countries" },
-    { number: "500+", label: "Projects delivered" },
+    { number: "40", label: "African countries" },
+    { number: "128", label: "Projects delivered" },
   ],
-  foundedYear: "2016",
+  foundedYear: "2012",
   cta: { label: "Our Full Story", href: "/about" },
 }
 
@@ -236,9 +236,9 @@ export const aboutPage = {
     headingLead: "Building Africa's",
     headingAccent: "future together",
     paragraphs: [
-      "Founded in 2016, Focus Africa Leadership was established with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape.",
+      "Founded in 2012, Focus Africa Leadership was established with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape.",
       "With a strong focus on customer satisfaction and a team of experienced professionals, we strive to deliver unparalleled results and create lasting positive impact combining deep local knowledge with global best practices.",
-      "Over the years, we have expanded our reach across 28 countries, transforming thousands of lives and completing over 500 successful projects.",
+      "Over the years, we have expanded our reach across 40 countries, transforming over 10,000 lives and completing 128 successful projects.",
     ],
   },
   valuesHeader: {
