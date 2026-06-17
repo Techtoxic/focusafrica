@@ -50,7 +50,7 @@ export default function ContactPage() {
               className="display mt-5 max-w-4xl text-ink text-balance"
             >
               {contactPage.hero.headingLead}{" "}
-              <span className="italic text-terracotta">{contactPage.hero.headingAccent}</span>
+              <span className="text-terracotta font-extrabold">{contactPage.hero.headingAccent}</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 18 }}

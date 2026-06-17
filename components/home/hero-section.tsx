@@ -4,21 +4,21 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
-import { Parallax } from "@/components/reveal"
 import { hero, images } from "@/lib/content"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-cream pt-28 lg:pt-36">
-      {/* structural geometry — hidden on mobile to avoid bleeding into headline */}
-      <div className="pointer-events-none absolute -right-24 -top-10 hidden h-[34rem] w-[34rem] rounded-full bg-ochre/15 lg:block" aria-hidden />
-      <div className="pointer-events-none absolute right-1/3 top-24 hidden h-40 w-40 text-terracotta/20 pattern-dots lg:block" aria-hidden />
+    <section className="relative overflow-hidden bg-cream pt-28 lg:pt-32">
+      {/* subtle backdrop, behind content */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh] bg-gradient-to-b from-ochre/10 via-cream to-cream" aria-hidden />
+      <div className="pointer-events-none absolute -right-40 top-10 -z-10 hidden h-[42rem] w-[42rem] rounded-full bg-ochre/20 blur-3xl lg:block" aria-hidden />
 
       <div className="container-x relative">
-        <div className="grid items-center gap-16 pb-24 lg:grid-cols-12 lg:gap-12 lg:pb-28">
-          <div className="lg:col-span-6">
+        <div className="grid items-center gap-12 pb-20 lg:grid-cols-2 lg:gap-16 lg:pb-28">
+          {/* COPY */}
+          <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export function HeroSection() {
               className="display mt-6 text-ink text-balance"
             >
               {hero.lines[0]} {hero.lines[1]}{" "}
-              <span className="italic text-terracotta">{hero.lines[2]}</span>
+              <span className="text-terracotta">{hero.lines[2]}</span>
             </motion.h1>
 
             <motion.p
@@ -51,7 +51,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.34 }}
+              transition={{ duration: 0.7, delay: 0.32 }}
               className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4"
             >
               <Link href={hero.primaryCta.href} className="btn btn-terra group">
@@ -64,15 +64,14 @@ export function HeroSection() {
             </motion.div>
           </div>
 
+          {/* IMAGE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease }}
-            className="relative lg:col-span-6"
+            className="relative mx-auto w-full max-w-xl lg:max-w-none"
           >
-            {/* color block behind */}
-            <div className="absolute -left-4 top-6 h-full w-full rounded-t-[14rem] rounded-b-2xl bg-forest" aria-hidden />
-            <Parallax className="img-zoom relative aspect-[4/5] overflow-hidden mask-arch-lg">
+            <div className="relative aspect-[5/6] w-full overflow-hidden rounded-[2rem] shadow-[0_30px_80px_-30px_rgba(28,20,13,0.5)] ring-1 ring-ink/5">
               <Image
                 src={images.heroBoardroom}
                 alt="Focus Africa Leadership advisors in a strategy session in their Nyeri boardroom"
@@ -81,16 +80,19 @@ export function HeroSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-            </Parallax>
-            {/* floating tag */}
-            <div className="absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl bg-ochre px-5 py-4 shadow-xl">
-              <span className="font-display text-3xl font-semibold leading-none text-ink">28</span>
-              <span className="text-[11px] font-bold uppercase leading-tight tracking-[0.12em] text-ink/70">
-                African
-                <br />
-                countries
-              </span>
+              {/* in-image badge */}
+              <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-cream/95 px-4 py-3 shadow-lg backdrop-blur">
+                <span className="font-display text-3xl font-bold leading-none text-terracotta">28</span>
+                <span className="text-[10px] font-bold uppercase leading-tight tracking-[0.12em] text-ink/70">
+                  African
+                  <br />
+                  countries
+                </span>
+              </div>
             </div>
+
+            {/* decorative offset block, contained behind image, desktop only */}
+            <div className="pointer-events-none absolute -bottom-6 -right-6 -z-10 hidden h-2/3 w-2/3 rounded-[2rem] bg-forest lg:block" aria-hidden />
           </motion.div>
         </div>
       </div>

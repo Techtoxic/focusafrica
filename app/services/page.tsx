@@ -32,7 +32,7 @@ export default function ServicesPage() {
                 <Reveal delay={0.06}>
                   <h1 className="display mt-5 text-ink text-balance">
                     {servicesPage.hero.headingLead}{" "}
-                    <span className="italic text-terracotta">{servicesPage.hero.headingAccent}</span>
+                    <span className="text-terracotta font-extrabold">{servicesPage.hero.headingAccent}</span>
                   </h1>
                 </Reveal>
                 <Reveal delay={0.12}>
@@ -125,7 +125,7 @@ export default function ServicesPage() {
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="relative mx-auto mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1] text-[#fff7ee] lg:text-6xl text-balance">
-                  {servicesPage.cta.headingLead} <span className="italic text-ochre">{servicesPage.cta.headingAccent}</span>
+                  {servicesPage.cta.headingLead} <span className="text-ochre font-extrabold">{servicesPage.cta.headingAccent}</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.12}>

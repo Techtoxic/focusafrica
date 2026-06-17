@@ -6,11 +6,12 @@ import { Reveal } from "@/components/reveal"
 import { homeServices, homeServicesHeader } from "@/lib/content"
 
 const accents = [
-  { dot: "bg-terracotta", text: "text-terracotta", soft: "bg-terracotta/10" },
-  { dot: "bg-ochre", text: "text-ochre-dark", soft: "bg-ochre/15" },
-  { dot: "bg-forest", text: "text-forest", soft: "bg-forest/10" },
-  { dot: "bg-terracotta", text: "text-terracotta", soft: "bg-terracotta/10" },
-  { dot: "bg-ochre", text: "text-ochre-dark", soft: "bg-ochre/15" },
+  { dot: "bg-terracotta", text: "text-terracotta", soft: "bg-terracotta/10", ring: "ring-terracotta/20" },
+  { dot: "bg-ochre", text: "text-ochre-dark", soft: "bg-ochre/15", ring: "ring-ochre/25" },
+  { dot: "bg-forest", text: "text-forest", soft: "bg-forest/10", ring: "ring-forest/20" },
+  { dot: "bg-terracotta", text: "text-terracotta", soft: "bg-terracotta/10", ring: "ring-terracotta/20" },
+  { dot: "bg-ochre", text: "text-ochre-dark", soft: "bg-ochre/15", ring: "ring-ochre/25" },
+  { dot: "bg-forest", text: "text-forest", soft: "bg-forest/10", ring: "ring-forest/20" },
 ]
 
 export function ServicesSection() {
@@ -25,7 +26,7 @@ export function ServicesSection() {
             <Reveal delay={0.06}>
               <h2 className="h1 mt-4 text-ink">
                 {homeServicesHeader.headingLead}{" "}
-                <span className="italic text-terracotta">{homeServicesHeader.headingAccent}</span>
+                <span className="text-terracotta font-extrabold">{homeServicesHeader.headingAccent}</span>
               </h2>
             </Reveal>
           </div>
@@ -37,44 +38,33 @@ export function ServicesSection() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {homeServices.map((s, i) => {
             const a = accents[i % accents.length]
             return (
               <Reveal key={s.id} delay={0.05 * i} className="h-full">
                 <Link
                   href={s.href}
-                  className="group flex h-full flex-col rounded-2xl border border-line bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(28,20,13,0.35)]"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-card p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-terracotta/30 hover:shadow-[0_24px_60px_-25px_rgba(28,20,13,0.4)] lg:p-9"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className={`flex h-12 w-12 items-center justify-center rounded-full ${a.soft} font-display text-lg font-semibold ${a.text}`}>
+                  {/* hover accent bar */}
+                  <span className={`absolute inset-x-0 top-0 h-1 ${a.dot} scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100`} />
+
+                  <div className="flex items-start justify-between">
+                    <span className={`flex h-14 w-14 items-center justify-center rounded-2xl ${a.soft} ring-1 ${a.ring} font-display text-lg font-bold ${a.text}`}>
                       {s.id}
                     </span>
-                    <ArrowUpRight className="h-5 w-5 text-ink/20 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-terracotta" />
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink/30 transition-all duration-300 group-hover:border-terracotta group-hover:bg-terracotta group-hover:text-[#fff7ee]">
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
                   </div>
-                  <h3 className="mt-6 font-display text-xl font-medium leading-snug text-ink lg:text-2xl">{s.title}</h3>
-                  <span className={`mt-3 h-1 w-10 rounded-full ${a.dot} transition-all duration-300 group-hover:w-16`} />
-                  <p className="mt-4 text-[15px] leading-relaxed text-muted">{s.description}</p>
+                  <h3 className="mt-7 font-display text-[1.35rem] font-bold leading-tight tracking-[-0.01em] text-ink lg:text-[1.5rem]">{s.title}</h3>
+                  <span className={`mt-3 h-1 w-10 rounded-full ${a.dot} transition-all duration-500 group-hover:w-20`} />
+                  <p className="mt-5 text-[15px] leading-relaxed text-muted">{s.description}</p>
                 </Link>
               </Reveal>
             )
           })}
-          {/* feature cell */}
-          <Reveal delay={0.05 * homeServices.length} className="h-full">
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-forest p-8 text-[#fff7ee]">
-              <div className="pointer-events-none absolute -right-8 -bottom-8 h-40 w-40 text-[#fff7ee]/8 pattern-dots" aria-hidden />
-              <p className="relative font-display text-2xl font-medium leading-snug">
-                Every engagement is rooted in the African context.
-              </p>
-              <Link
-                href={homeServicesHeader.cta.href}
-                className="relative mt-6 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-ochre transition-colors hover:text-[#fff7ee]"
-              >
-                View all services
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>

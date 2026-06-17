@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────
-// Focus Africa Leadership — centralized site content.
+// Focus Africa Leadership, centralized site content.
 // Single source of truth for every string + asset path.
 // ─────────────────────────────────────────────────────────────
 
@@ -14,7 +14,7 @@ export const site = {
   emailHref: "mailto:info@focusafrica.co.ke",
   address: "Karson Photo House, Kimathi Way, 1st Floor, Nyeri",
   postal: "P.O. Box 762-10100",
-  hours: "Monday – Friday, 8:00am – 5:00pm",
+  hours: "Monday to Friday, 8:00am to 5:00pm",
 }
 
 export const navLinks = [
@@ -88,7 +88,7 @@ export const aboutStrip = {
   headingLead: "The journey behind",
   headingAccent: "Focus Africa",
   paragraphs: [
-    "Founded with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape — from our home in Nyeri to the whole continent.",
+    "Founded with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape, from our home in Nyeri to the whole continent.",
     "With experienced professionals, we deliver unparalleled results and create lasting impact for every individual and organization we partner with.",
   ],
   miniStats: [
@@ -105,7 +105,7 @@ export const homeServices = [
     id: "01",
     title: "Project Management",
     description:
-      "End-to-end stewardship of complex programmes — planning, governance, risk, procurement and delivery — keeping budgets, timelines and outcomes aligned with your strategic goals.",
+      "End-to-end stewardship of complex programmes, covering planning, governance, risk, procurement and delivery, keeping budgets, timelines and outcomes aligned with your strategic goals.",
     href: "/services#project-management",
   },
   {
@@ -163,7 +163,7 @@ export const process = {
       number: "01",
       title: "Discovery",
       description:
-        "Deep immersion in your challenges, goals, and vision — before a single strategy is formed.",
+        "Deep immersion in your challenges, goals, and vision before a single strategy is formed.",
     },
     {
       number: "02",
@@ -181,7 +181,7 @@ export const process = {
       number: "04",
       title: "Growth",
       description:
-        "Continuous optimization and scaling — building momentum that outlasts our engagement.",
+        "Continuous optimization and scaling that builds momentum well beyond our engagement.",
     },
   ],
 }
@@ -196,7 +196,7 @@ export const testimonialsHeader = {
 export const testimonials = [
   {
     quote:
-      "Focus Africa Leadership transformed our approach to sustainable agriculture. Their expertise and dedication was evident from day one — remarkable improvements in operations and team capabilities.",
+      "Focus Africa Leadership transformed our approach to sustainable agriculture. Their expertise and dedication was evident from day one, with remarkable improvements in operations and team capabilities.",
     author: "Jordan Kilungu",
     role: "Chief Executive Officer",
     company: "Geothermal Recycle Company",
@@ -307,7 +307,7 @@ export const servicesDetailed = [
     number: "01",
     title: "Project Management",
     description:
-      "End-to-end stewardship of complex programmes — from planning and governance through procurement, risk management and delivery. We keep budgets, timelines and outcomes aligned with your strategic goals and your funders' expectations.",
+      "End-to-end stewardship of complex programmes, from planning and governance through procurement, risk management and delivery. We keep budgets, timelines and outcomes aligned with your strategic goals and your funders' expectations.",
     image: images.projectManagement,
     subServices: [
       "Programme planning & inception",

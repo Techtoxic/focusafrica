@@ -30,7 +30,7 @@ export default function AboutPage() {
                 <Reveal delay={0.06}>
                   <h1 className="display mt-5 text-ink text-balance">
                     {aboutPage.hero.headingLead}{" "}
-                    <span className="italic text-terracotta">{aboutPage.hero.headingAccent}</span>
+                    <span className="text-terracotta font-extrabold">{aboutPage.hero.headingAccent}</span>
                   </h1>
                 </Reveal>
                 <Reveal delay={0.12}>
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 <Reveal delay={0.06}>
                   <h2 className="h1 mt-4 text-ink">
                     {aboutPage.story.headingLead}{" "}
-                    <span className="italic text-terracotta">{aboutPage.story.headingAccent}</span>
+                    <span className="text-terracotta font-extrabold">{aboutPage.story.headingAccent}</span>
                   </h2>
                 </Reveal>
                 <Reveal delay={0.12}>
@@ -126,7 +126,7 @@ export default function AboutPage() {
               <Reveal delay={0.06}>
                 <h2 className="h1 mt-4 text-ink">
                   {aboutPage.valuesHeader.headingLead}{" "}
-                  <span className="italic text-terracotta">{aboutPage.valuesHeader.headingAccent}</span>
+                  <span className="text-terracotta font-extrabold">{aboutPage.valuesHeader.headingAccent}</span>
                 </h2>
               </Reveal>
             </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="relative mx-auto mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1] text-[#fff7ee] lg:text-6xl text-balance">
-                  {aboutPage.cta.headingLead} <span className="italic text-ochre">{aboutPage.cta.headingAccent}</span>
+                  {aboutPage.cta.headingLead} <span className="text-ochre font-extrabold">{aboutPage.cta.headingAccent}</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.12}>

@@ -19,7 +19,7 @@ export function CTABanner() {
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="mt-5 font-display text-5xl font-semibold leading-[0.98] text-[#fff7ee] lg:text-6xl text-balance">
-                  {homeCta.headingLead} <span className="italic text-ochre">{homeCta.headingAccent}</span>
+                  {homeCta.headingLead} <span className="text-ochre font-extrabold">{homeCta.headingAccent}</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.12}>

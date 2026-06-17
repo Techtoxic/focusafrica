@@ -36,7 +36,7 @@ export function AboutStrip() {
             </Reveal>
             <Reveal delay={0.06}>
               <h2 className="h1 mt-4 text-ink">
-                {aboutStrip.headingLead} <span className="italic text-terracotta">{aboutStrip.headingAccent}</span>
+                {aboutStrip.headingLead} <span className="text-terracotta font-extrabold">{aboutStrip.headingAccent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.12}>

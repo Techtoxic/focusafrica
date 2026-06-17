@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Fraunces } from 'next/font/google'
+import { Inter, Bricolage_Grotesque } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-// Variant 3 — Bold & Pan-African
-// Fraunces: characterful high-contrast display serif (soft, expressive) → owned identity
+// Bricolage Grotesque: contemporary, characterful display sans with a confident voice
 // Inter: clean, modern body that keeps the personality readable
 const inter = Inter({
   subsets: ['latin'],
@@ -13,12 +12,11 @@ const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],
 })
 
-const fraunces = Fraunces({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-display',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '900'],
-  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
@@ -27,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | Focus Africa Leadership',
   },
   description:
-    'Strategic solutions for sustainable growth across the continent. Focus Africa Leadership is a Nyeri-based strategic consultancy empowering businesses and individuals throughout Africa.',
+    "Strategic solutions for sustainable growth across the continent. Focus Africa Leadership is a Nyeri-based strategic consultancy empowering businesses and individuals throughout Africa.",
   keywords: ['consultancy', 'Africa', 'leadership', 'strategic solutions', 'Nyeri', 'Kenya', 'sustainable growth'],
   authors: [{ name: 'Focus Africa Leadership' }],
   openGraph: {
@@ -55,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} bg-[#F6EEE2]`}>
+    <html lang="en" className={`${inter.variable} ${bricolage.variable} bg-[#F6EEE2]`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

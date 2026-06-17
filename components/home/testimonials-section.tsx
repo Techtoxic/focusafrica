@@ -14,7 +14,7 @@ export function TestimonialsSection() {
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="h1 mt-4 max-w-xl text-[#fff7ee]">
-              {testimonialsHeader.headingLead} <span className="italic text-ochre">{testimonialsHeader.headingAccent}</span>
+              {testimonialsHeader.headingLead} <span className="text-ochre font-extrabold">{testimonialsHeader.headingAccent}</span>
             </h2>
           </Reveal>
         </div>

@@ -35,26 +35,25 @@ export function StatsSection() {
   return (
     <section ref={ref} className="relative overflow-hidden bg-forest text-[#fff7ee]">
       <div className="pointer-events-none absolute inset-0 text-[#fff7ee]/5 pattern-diag" aria-hidden />
-      <div className="container-x relative">
-        <div className="grid grid-cols-2 lg:grid-cols-4">
-          {homeStats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 22 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
-              className="border-l border-[#fff7ee]/12 px-6 py-12 first:border-l-0 lg:px-10 lg:py-16"
-            >
-              <span className="block font-display text-5xl font-semibold tracking-tight text-ochre lg:text-6xl">
-                <CountUp target={s.number} suffix={s.suffix} run={inView} />
-              </span>
-              <span className="mt-3 block text-[12px] font-bold uppercase tracking-[0.14em] text-[#fff7ee]">
-                {s.label}
-              </span>
-              <span className="mt-1 block text-sm text-[#fff7ee]/55">{s.sub}</span>
-            </motion.div>
-          ))}
-        </div>
+      {/* Full-bleed grid, no constraining container, evenly spaced */}
+      <div className="relative grid grid-cols-2 lg:grid-cols-4">
+        {homeStats.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 22 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.65, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+            className="border-l border-[#fff7ee]/12 px-8 py-14 first:border-l-0 sm:px-10 lg:px-12 lg:py-20 [&:nth-child(3)]:border-l-0 lg:[&:nth-child(3)]:border-l"
+          >
+            <span className="block font-display text-[3.25rem] font-bold leading-none tracking-tight text-ochre lg:text-[4.5rem]">
+              <CountUp target={s.number} suffix={s.suffix} run={inView} />
+            </span>
+            <span className="mt-4 block text-[12px] font-bold uppercase tracking-[0.16em] text-[#fff7ee]">
+              {s.label}
+            </span>
+            <span className="mt-1 block text-sm text-[#fff7ee]/55">{s.sub}</span>
+          </motion.div>
+        ))}
       </div>
     </section>
   )
