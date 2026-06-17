@@ -14,16 +14,15 @@ import { homeServices, homeServicesHeader } from "@/lib/content"
  *   Row 3: [   wide   ][   wide   ]
  */
 const layout = [
-  // index 0 = featured
-  "lg:col-span-2 lg:row-span-2",
-  // index 1 = wide
-  "lg:col-span-2",
-  // 2,3 = standard
+  // 0 = featured (wide, single row)
+  "sm:col-span-2 lg:col-span-2",
+  // 1 = wide
+  "sm:col-span-2 lg:col-span-2",
+  // 2,3,4,5 = even row of four
   "lg:col-span-1",
   "lg:col-span-1",
-  // 4,5 = wide pair
-  "lg:col-span-2",
-  "lg:col-span-2",
+  "lg:col-span-1",
+  "lg:col-span-1",
 ]
 
 const accents = [
@@ -60,7 +59,7 @@ export function ServicesSection() {
         </div>
 
         {/* BENTO GRID */}
-        <div className="mt-14 grid auto-rows-[minmax(220px,auto)] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div className="mt-14 grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {homeServices.map((s, i) => {
             const a = accents[i % accents.length]
             const span = layout[i] ?? ""

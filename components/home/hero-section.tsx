@@ -13,6 +13,8 @@ export function HeroSection() {
     <section className="relative overflow-hidden bg-cream pt-28 lg:pt-32">
       {/* subtle backdrop, behind content */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh] bg-gradient-to-b from-ochre/10 via-cream to-cream" aria-hidden />
+      {/* faded grid pattern */}
+      <div className="pointer-events-none absolute inset-0 -z-10 text-ink/[0.07] pattern-grid" aria-hidden />
       <div className="pointer-events-none absolute -right-40 top-10 -z-10 hidden h-[42rem] w-[42rem] rounded-full bg-ochre/20 blur-3xl lg:block" aria-hidden />
 
       <div className="container-x relative">

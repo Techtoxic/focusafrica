@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Twitter, Linkedin, Facebook, Instagram, Youtube } from "lucide-react"
 import { navLinks, socialLinks, footerServiceLinks, site, images } from "@/lib/content"
 
 export function Footer() {
@@ -58,19 +58,28 @@ export function Footer() {
                 ))}
               </FooterCol>
               <FooterCol title="Connect">
-                {socialLinks.map((l) => (
-                  <li key={l.name}>
-                    <a
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1 text-sm text-[#fff7ee]/70 transition-colors hover:text-[#fff7ee]"
-                    >
-                      {l.name}
-                      <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                    </a>
-                  </li>
-                ))}
+                <li className="flex flex-wrap items-center gap-2.5">
+                  {socialLinks.map((l) => {
+                    const Icon =
+                      l.name === "Twitter" ? Twitter :
+                      l.name === "LinkedIn" ? Linkedin :
+                      l.name === "Facebook" ? Facebook :
+                      l.name === "Instagram" ? Instagram :
+                      l.name === "YouTube" ? Youtube : ArrowUpRight
+                    return (
+                      <a
+                        key={l.name}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={l.name}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#fff7ee]/15 bg-[#fff7ee]/[0.04] text-[#fff7ee]/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-ochre hover:bg-ochre hover:text-forest"
+                      >
+                        <Icon className="h-4 w-4" strokeWidth={1.8} />
+                      </a>
+                    )
+                  })}
+                </li>
               </FooterCol>
             </div>
           </div>

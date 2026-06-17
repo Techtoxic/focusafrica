@@ -164,7 +164,8 @@
 .btn {
   @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-300;
 }
-.btn-terra { @apply bg-terracotta text-[#fff7ee] hover:bg-terracotta-dark shadow-[0_10px_24px_-12px_rgba(246,135,79,0.65)]; }
+.btn-terra { @apply bg-terracotta-dark text-[#fff7ee] hover:bg-terracotta shadow-[0_8px_20px_-12px_rgba(28,20,13,0.45)]; }
+.btn-terra-soft { @apply bg-ink/[0.06] text-ink hover:bg-terracotta hover:text-[#fff7ee] ring-1 ring-ink/10; }
 .btn-forest { @apply bg-forest text-[#fff7ee] hover:bg-forest-2; }
 .btn-ochre { @apply bg-ochre text-ink hover:bg-ochre-dark; }
 .btn-outline { @apply border-2 border-ink/20 text-ink hover:border-terracotta hover:bg-terracotta hover:text-[#fff7ee]; }
@@ -199,6 +200,14 @@
 }
 .pattern-diag {
   background-image: repeating-linear-gradient(45deg, currentColor 0 1px, transparent 1px 14px);
+}
+.pattern-grid {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 35%, transparent 80%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 35%, transparent 80%);
 }
 
 /* ── Arch image mask ── */

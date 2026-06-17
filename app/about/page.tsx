@@ -117,9 +117,10 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="border-y border-line bg-cream-2 py-20 lg:py-28">
-          <div className="container-x">
-            <div className="mb-12 max-w-2xl lg:mb-14">
+        <section className="relative overflow-hidden border-y border-line bg-cream-2 py-20 lg:py-28">
+          <div className="pointer-events-none absolute inset-0 text-ink/[0.05] pattern-grid" aria-hidden />
+          <div className="container-x relative">
+            <div className="mb-14 max-w-2xl lg:mb-20">
               <Reveal>
                 <p className="eyebrow text-terracotta-dark">{aboutPage.valuesHeader.eyebrow}</p>
               </Reveal>
@@ -130,22 +131,28 @@ export default function AboutPage() {
                 </h2>
               </Reveal>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2">
+
+            <ol className="relative space-y-12 lg:space-y-16">
               {aboutPage.values.map((v, i) => {
-                const tones = ["bg-terracotta/10 text-terracotta", "bg-ochre/15 text-ochre-dark", "bg-forest/10 text-forest", "bg-terracotta/10 text-terracotta"]
+                const accents = ["text-terracotta", "text-ochre-dark", "text-forest", "text-terracotta"]
+                const isEven = i % 2 === 0
                 return (
-                  <Reveal key={v.id} delay={0.05 * i} className="h-full">
-                    <article className="flex h-full flex-col rounded-2xl border border-line bg-card p-8 lg:p-10">
-                      <span className={`flex h-12 w-12 items-center justify-center rounded-full font-display text-lg font-semibold ${tones[i % tones.length]}`}>
-                        {v.id}
-                      </span>
-                      <h3 className="mt-5 font-display text-2xl font-medium text-ink">{v.title}</h3>
-                      <p className="mt-4 text-[15px] leading-relaxed text-muted">{v.description}</p>
-                    </article>
+                  <Reveal key={v.id} delay={0.05 * i}>
+                    <li className="group grid items-start gap-6 border-t border-ink/10 pt-10 lg:grid-cols-12 lg:gap-10 lg:pt-12">
+                      <div className={`lg:col-span-4 ${isEven ? "lg:order-1" : "lg:order-2 lg:text-right"}`}>
+                        <span className={`block font-display text-[5.5rem] font-bold leading-none tracking-tight lg:text-[7rem] ${accents[i % accents.length]}`}>
+                          {v.id}
+                        </span>
+                        <h3 className="mt-2 font-display text-3xl font-semibold text-ink lg:text-4xl">{v.title}</h3>
+                      </div>
+                      <div className={`lg:col-span-7 ${isEven ? "lg:order-2 lg:col-start-6" : "lg:order-1 lg:col-start-1"}`}>
+                        <p className="text-base leading-relaxed text-ink-2 lg:text-[17px]">{v.description}</p>
+                      </div>
+                    </li>
                   </Reveal>
                 )
               })}
-            </div>
+            </ol>
           </div>
         </section>
 
