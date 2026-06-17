@@ -1,10 +1,11 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { navLinks, site } from "@/lib/content"
+import { navLinks, site, images } from "@/lib/content"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -26,10 +27,13 @@ export function Navigation() {
       >
         <nav className="container-x">
           <div className="flex h-[72px] items-center justify-between lg:h-[84px]">
-            <Link href="/" className="flex items-baseline gap-2">
-              <span className="font-display text-2xl font-semibold text-ink lg:text-[28px]">{site.brand}</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-terracotta">
-                {site.brandSuffix}
+            <Link href="/" className="flex items-center gap-3" aria-label="Focus Africa Leadership home">
+              <Image src={images.logo} alt="" width={44} height={44} className="h-10 w-10 rounded-md object-contain bg-white p-0.5 shadow-sm lg:h-11 lg:w-11" priority />
+              <span className="flex items-baseline gap-2">
+                <span className="font-display text-2xl font-semibold text-ink lg:text-[28px]">{site.brand}</span>
+                <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-[0.2em] text-terracotta">
+                  {site.brandSuffix}
+                </span>
               </span>
             </Link>
 

@@ -17,12 +17,13 @@
   --muted:     #6e5c49;
   --line:      #e2d3bb;
 
-  --terracotta:      #c2553a;
-  --terracotta-dark: #a8442c;
-  --ochre:           #d9952b;
-  --ochre-dark:      #bd7e1c;
-  --forest:          #274133;
-  --forest-2:        #1c3326;
+  /* Brand palette derived from Focus Africa logo (green + orange) */
+  --terracotta:      #f6874f; /* logo orange */
+  --terracotta-dark: #d96b34;
+  --ochre:           #a9cf46; /* logo green */
+  --ochre-dark:      #8bb336;
+  --forest:          #2b3a16; /* deep, near-black logo green */
+  --forest-2:        #1d2810;
 
   --background: var(--cream);
   --foreground: var(--ink);

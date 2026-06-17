@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     template: '%s | Focus Africa Leadership',
   },
   description:
-    'Strategic solutions for sustainable growth across the continent. Focus Africa Leadership is a Nairobi-based strategic consultancy empowering businesses and individuals throughout Africa.',
-  keywords: ['consultancy', 'Africa', 'leadership', 'strategic solutions', 'Nairobi', 'Kenya', 'sustainable growth'],
+    'Strategic solutions for sustainable growth across the continent. Focus Africa Leadership is a Nyeri-based strategic consultancy empowering businesses and individuals throughout Africa.',
+  keywords: ['consultancy', 'Africa', 'leadership', 'strategic solutions', 'Nyeri', 'Kenya', 'sustainable growth'],
   authors: [{ name: 'Focus Africa Leadership' }],
   openGraph: {
     type: 'website',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#274133',
+  themeColor: '#2b3a16',
   width: 'device-width',
   initialScale: 1,
 }

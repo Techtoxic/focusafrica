@@ -17,7 +17,7 @@ export function AboutStrip() {
             <Parallax className="img-zoom relative aspect-[4/5] overflow-hidden mask-arch-lg">
               <Image
                 src={images.team}
-                alt="The Focus Africa Leadership advisory team collaborating in their Nairobi office"
+                alt="The Focus Africa Leadership advisory team collaborating in their Nyeri office"
                 fill
                 sizes="(max-width: 1024px) 100vw, 42vw"
                 className="object-cover"

@@ -42,7 +42,7 @@ export default function AboutPage() {
                 <Parallax className="img-zoom relative aspect-[5/5] overflow-hidden mask-arch-lg">
                   <Image
                     src={images.skyline}
-                    alt="The Nairobi skyline at golden hour"
+                    alt="A landscape view of the Mt Kenya region near Nyeri"
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -85,7 +85,7 @@ export default function AboutPage() {
                 <Parallax className="img-zoom relative aspect-[4/5] overflow-hidden mask-arch-lg">
                   <Image
                     src={images.leaderPortrait}
-                    alt="A Focus Africa Leadership executive in their Nairobi office"
+                    alt="A Focus Africa Leadership executive in their Nyeri office"
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
                     className="object-cover"

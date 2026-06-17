@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
-import { navLinks, socialLinks, footerServiceLinks, site } from "@/lib/content"
+import { navLinks, socialLinks, footerServiceLinks, site, images } from "@/lib/content"
 
 export function Footer() {
   return (
@@ -11,13 +12,17 @@ export function Footer() {
       <div className="container-x py-16 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
-            <Link href="/" className="flex items-baseline gap-2">
-              <span className="font-display text-3xl font-semibold text-[#fff7ee]">{site.brand}</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ochre">{site.brandSuffix}</span>
+            <Link href="/" className="flex items-center gap-3" aria-label="Focus Africa Leadership home">
+              <Image src={images.logo} alt="" width={56} height={56} className="h-12 w-12 rounded-md object-contain bg-white p-1 shadow-sm" />
+              <span className="flex items-baseline gap-2">
+                <span className="font-display text-3xl font-semibold text-[#fff7ee]">{site.brand}</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ochre">{site.brandSuffix}</span>
+              </span>
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#fff7ee]/65">{site.tagline}</p>
             <div className="mt-8 space-y-2 text-sm text-[#fff7ee]/75">
               <p>{site.address}</p>
+              <p className="text-[#fff7ee]/60">{site.postal}</p>
               <p>
                 <a href={site.phoneHref} className="transition-colors hover:text-ochre">
                   {site.phone}

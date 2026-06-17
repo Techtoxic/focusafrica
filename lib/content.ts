@@ -1,9 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 // Focus Africa Leadership — centralized site content.
-// Copy is preserved verbatim from the approved site. This module
-// is the single source of truth for every string + asset path so
-// all sections stay in sync (and so a CMS like Sanity can later
-// map 1:1 onto these shapes).
+// Single source of truth for every string + asset path.
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
@@ -11,12 +8,13 @@ export const site = {
   brandSuffix: "Leadership",
   tagline:
     "Strategic consultancy empowering Africa's future leaders with innovative solutions for sustainable growth across the continent.",
-  phone: "+254 706 193 987",
+  phone: "0706 193 987",
   phoneHref: "tel:+254706193987",
   email: "info@focusafrica.co.ke",
   emailHref: "mailto:info@focusafrica.co.ke",
-  address: "International House, Nairobi, Kenya",
-  hours: "Monday – Friday, 9:30 am – 5:30 pm",
+  address: "Karson Photo House, Kimathi Way, 1st Floor, Nyeri",
+  postal: "P.O. Box 762-10100",
+  hours: "Monday – Friday, 8:00am – 5:00pm",
 }
 
 export const navLinks = [
@@ -28,13 +26,13 @@ export const navLinks = [
 
 export const socialLinks = [
   { name: "Twitter", href: "https://twitter.com/FocusAfrica7" },
-  { name: "LinkedIn", href: "https://linkedin.com/company/focus-africa-leadership" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/focus-africa-leadership" },
   { name: "Facebook", href: "https://facebook.com/FOCUSAFRICALTD" },
 ]
 
-// ── Imagery (centralized so the client's real photography can be
-// dropped into /public/images with the same filenames later) ──
+// ── Imagery ──
 export const images = {
+  logo: "/images/logo.jpg",
   heroBoardroom: "/images/hero.jpg",
   skyline: "/images/skyline.jpg",
   leaderPortrait: "/images/portrait.jpg",
@@ -45,6 +43,7 @@ export const images = {
   finance: "/images/finance.jpg",
   monitoring: "/images/monitoring.jpg",
   handshake: "/images/handshake.jpg",
+  projectManagement: "/images/handshake.jpg",
 }
 
 // ── Home: hero ──
@@ -59,7 +58,7 @@ export const hero = {
 
 // ── Home + About: stats ──
 export const homeStats = [
-  { number: 15, suffix: "+", label: "Years of Excellence", sub: "Est. 2009" },
+  { number: 15, suffix: "+", label: "Years of Excellence", sub: "Est. 2016" },
   { number: 500, suffix: "+", label: "Projects Delivered", sub: "Across the continent" },
   { number: 28, suffix: "", label: "African Countries", sub: "Active presence" },
   { number: 98, suffix: "%", label: "Client Retention", sub: "Year over year" },
@@ -89,7 +88,7 @@ export const aboutStrip = {
   headingLead: "The journey behind",
   headingAccent: "Focus Africa",
   paragraphs: [
-    "Founded with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape — from Nairobi to the whole continent.",
+    "Founded with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape — from our home in Nyeri to the whole continent.",
     "With experienced professionals, we deliver unparalleled results and create lasting impact for every individual and organization we partner with.",
   ],
   miniStats: [
@@ -100,21 +99,21 @@ export const aboutStrip = {
   cta: { label: "Our Full Story", href: "/about" },
 }
 
-// ── Home: services accordion ──
+// ── Home: services accordion (all six, client-requested order) ──
 export const homeServices = [
   {
     id: "01",
-    title: "Agriculture, Environment & Climate",
+    title: "Project Management",
     description:
-      "Comprehensive solutions to address climate change and promote sustainable agricultural practices across Africa. We partner with organizations to implement regenerative farming, conservation strategies, and climate resilience programs.",
-    href: "/services#agriculture",
+      "End-to-end stewardship of complex programmes — planning, governance, risk, procurement and delivery — keeping budgets, timelines and outcomes aligned with your strategic goals.",
+    href: "/services#project-management",
   },
   {
     id: "02",
-    title: "Research & Development",
+    title: "Finance & Administration",
     description:
-      "Customer ecosystem analysis, innovation roadmaps, and process optimization for continuous improvement. Our research-driven approach ensures data-backed decisions and strategic insights.",
-    href: "/services#research",
+      "Fund management, financial administration, donor fund management, and organizational health checks. We bring financial clarity and operational excellence to every engagement.",
+    href: "/services#finance",
   },
   {
     id: "03",
@@ -125,17 +124,24 @@ export const homeServices = [
   },
   {
     id: "04",
-    title: "Finance & Administration",
-    description:
-      "Fund management, financial administration, donor fund management, and organizational health checks. We bring financial clarity and operational excellence to every engagement.",
-    href: "/services#finance",
-  },
-  {
-    id: "05",
     title: "Monitoring & Evaluation",
     description:
       "Indicator development, stakeholder engagement, M&E system design, and impact measurement. Track progress and demonstrate results with our comprehensive evaluation frameworks.",
     href: "/services#monitoring",
+  },
+  {
+    id: "05",
+    title: "Agriculture, Environment & Climate Change",
+    description:
+      "Comprehensive solutions to address climate change and promote sustainable agricultural practices across Africa. We partner with organizations to implement regenerative farming, conservation strategies, and climate resilience programs.",
+    href: "/services#agriculture",
+  },
+  {
+    id: "06",
+    title: "Research & Development",
+    description:
+      "Customer ecosystem analysis, innovation roadmaps, and process optimization for continuous improvement. Our research-driven approach ensures data-backed decisions and strategic insights.",
+    href: "/services#research",
   },
 ]
 
@@ -272,7 +278,7 @@ export const aboutPage = {
     headingAccent: "your potential?",
     body: "Partner with us to create lasting impact across Africa.",
     primaryCta: { label: "Get in Touch", href: "/contact" },
-    phoneNote: "Or call: +254 706 193 987",
+    phoneNote: "Or call: 0706 193 987",
   },
 }
 
@@ -297,31 +303,31 @@ export const servicesPage = {
 
 export const servicesDetailed = [
   {
-    id: "agriculture",
+    id: "project-management",
     number: "01",
-    title: "Agriculture, Environment & Climate",
+    title: "Project Management",
     description:
-      "Comprehensive solutions to address climate change and promote sustainable agricultural practices across the African continent. We help organizations build resilience and drive positive environmental impact.",
-    image: images.agriculture,
+      "End-to-end stewardship of complex programmes — from planning and governance through procurement, risk management and delivery. We keep budgets, timelines and outcomes aligned with your strategic goals and your funders' expectations.",
+    image: images.projectManagement,
     subServices: [
-      "Climate Change Adaptation strategies",
-      "Capacity Building for NGOs and government",
-      "Research and Innovation in carbon sequestration",
-      "Support for Farmers and Pastoralists",
+      "Programme planning & inception",
+      "Governance, risk & compliance frameworks",
+      "Procurement & contract management",
+      "Stakeholder coordination & reporting",
     ],
   },
   {
-    id: "research",
+    id: "finance",
     number: "02",
-    title: "Research & Development",
+    title: "Finance & Administration",
     description:
-      "Driving innovation through comprehensive research services that help organizations stay ahead of the curve. Our data-driven approach ensures informed decision-making.",
-    image: images.research,
+      "Robust financial management and administrative support to ensure organizational health and sustainability. We bring clarity and efficiency to your operations.",
+    image: images.finance,
     subServices: [
-      "Customer Ecosystem Analysis",
-      "Innovation Roadmaps development",
-      "Process Optimization strategies",
-      "Continuous Learning implementation",
+      "Fund Management services",
+      "Financial Administration support",
+      "Donor Fund Management",
+      "Organizational Health Checks",
     ],
   },
   {
@@ -339,22 +345,8 @@ export const servicesDetailed = [
     ],
   },
   {
-    id: "finance",
-    number: "04",
-    title: "Finance & Administration",
-    description:
-      "Robust financial management and administrative support to ensure organizational health and sustainability. We bring clarity and efficiency to your operations.",
-    image: images.finance,
-    subServices: [
-      "Fund Management services",
-      "Financial Administration support",
-      "Donor Fund Management",
-      "Organizational Health Checks",
-    ],
-  },
-  {
     id: "monitoring",
-    number: "05",
+    number: "04",
     title: "Monitoring & Evaluation",
     description:
       "Data-driven insights to measure impact and ensure programs achieve their intended outcomes. Track progress and demonstrate results with precision.",
@@ -364,6 +356,34 @@ export const servicesDetailed = [
       "Stakeholder Engagement strategies",
       "M&E System Design",
       "Impact Measurement",
+    ],
+  },
+  {
+    id: "agriculture",
+    number: "05",
+    title: "Agriculture, Environment & Climate Change",
+    description:
+      "Comprehensive solutions to address climate change and promote sustainable agricultural practices across the African continent. We help organizations build resilience and drive positive environmental impact.",
+    image: images.agriculture,
+    subServices: [
+      "Climate Change Adaptation strategies",
+      "Capacity Building for NGOs and government",
+      "Research and Innovation in carbon sequestration",
+      "Support for Farmers and Pastoralists",
+    ],
+  },
+  {
+    id: "research",
+    number: "06",
+    title: "Research & Development",
+    description:
+      "Driving innovation through comprehensive research services that help organizations stay ahead of the curve. Our data-driven approach ensures informed decision-making.",
+    image: images.research,
+    subServices: [
+      "Customer Ecosystem Analysis",
+      "Innovation Roadmaps development",
+      "Process Optimization strategies",
+      "Continuous Learning implementation",
     ],
   },
 ]
@@ -393,16 +413,19 @@ export const contactPage = {
   },
   contactItems: [
     { icon: "MapPin", label: "Visit Us", value: site.address },
+    { icon: "MapPin", label: "Postal Address", value: site.postal },
     { icon: "Phone", label: "Call Us", value: site.phone, href: site.phoneHref },
     { icon: "Mail", label: "Email Us", value: site.email, href: site.emailHref },
     { icon: "Clock", label: "Working Hours", value: site.hours },
   ],
 }
 
-// ── Footer ──
+// ── Footer (all six services, client-requested order) ──
 export const footerServiceLinks = [
-  { href: "/services#agriculture", label: "Agriculture & Climate" },
-  { href: "/services#research", label: "Research & Development" },
-  { href: "/services#training", label: "Training & Capacity" },
+  { href: "/services#project-management", label: "Project Management" },
+  { href: "/services#finance", label: "Finance & Administration" },
+  { href: "/services#training", label: "Training & Capacity Development" },
   { href: "/services#monitoring", label: "Monitoring & Evaluation" },
+  { href: "/services#agriculture", label: "Agriculture, Environment & Climate" },
+  { href: "/services#research", label: "Research & Development" },
 ]

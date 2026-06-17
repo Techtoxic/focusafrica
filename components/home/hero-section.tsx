@@ -12,12 +12,12 @@ const ease = [0.16, 1, 0.3, 1] as const
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-cream pt-28 lg:pt-36">
-      {/* structural geometry */}
-      <div className="pointer-events-none absolute -right-24 -top-10 h-[34rem] w-[34rem] rounded-full bg-ochre/15" aria-hidden />
+      {/* structural geometry — hidden on mobile to avoid bleeding into headline */}
+      <div className="pointer-events-none absolute -right-24 -top-10 hidden h-[34rem] w-[34rem] rounded-full bg-ochre/15 lg:block" aria-hidden />
       <div className="pointer-events-none absolute right-1/3 top-24 hidden h-40 w-40 text-terracotta/20 pattern-dots lg:block" aria-hidden />
 
       <div className="container-x relative">
-        <div className="grid items-center gap-12 pb-20 lg:grid-cols-12 lg:gap-12 lg:pb-28">
+        <div className="grid items-center gap-16 pb-24 lg:grid-cols-12 lg:gap-12 lg:pb-28">
           <div className="lg:col-span-6">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -75,7 +75,7 @@ export function HeroSection() {
             <Parallax className="img-zoom relative aspect-[4/5] overflow-hidden mask-arch-lg">
               <Image
                 src={images.heroBoardroom}
-                alt="Focus Africa Leadership advisors in a strategy session in a Nairobi boardroom"
+                alt="Focus Africa Leadership advisors in a strategy session in their Nyeri boardroom"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
