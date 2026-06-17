@@ -6,7 +6,7 @@
 /* ─────────────────────────────────────────────────────────────
    Variant 3 — Bold & Pan-African
    Warm, grounded, confident. Cream + terracotta + ochre + forest.
-   Structural geometry (arches, blocks, stripes), expressive serif.
+   Structural geometry (arches, blocks, stripes), expressive sans.
    ───────────────────────────────────────────────────────────── */
 :root {
   --cream:     #f6eee2;
@@ -45,6 +45,45 @@
   --ring: var(--terracotta);
 
   --radius: 0.75rem;
+}
+
+/* ── Dark mode: Warm Charcoal ──
+   A deep brown-black that lets the terracotta + ochre brand glow
+   instead of competing with cool slate. Tokens swap in place, so
+   every component picks up the dark surface automatically. */
+.dark {
+  --cream:     #15100c;  /* page background, deep umber-black */
+  --cream-2:   #1d1611;  /* secondary surface */
+  --sand:      #2a1f18;
+  --ink:       #f1e6d4;  /* primary text */
+  --ink-2:     #d9caaf;  /* secondary text */
+  --muted:     #9a8978;
+  --line:      #3a2d22;  /* warm divider */
+
+  /* Slightly cooled accents stay readable on the dark surface */
+  --terracotta:      #ff9263;
+  --terracotta-dark: #f6874f;
+  --ochre:           #bcdc5c;
+  --ochre-dark:      #a9cf46;
+  --forest:          #243012; /* keep dark forest sections distinct */
+  --forest-2:        #1a230c;
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: #1f1812;
+  --card-foreground: var(--ink);
+  --popover: #1f1812;
+  --popover-foreground: var(--ink);
+  --primary: var(--terracotta);
+  --primary-foreground: #15100c;
+  --secondary: var(--cream-2);
+  --secondary-foreground: var(--ink);
+  --muted-foreground: var(--muted);
+  --accent: var(--ochre);
+  --accent-foreground: #15100c;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--terracotta);
 }
 
 @theme inline {
@@ -91,6 +130,7 @@
     @apply bg-cream text-ink;
     font-feature-settings: 'kern' 1, 'liga' 1;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
   html { scroll-behavior: smooth; }
   ::selection { background: var(--terracotta); color: #fff7ee; }

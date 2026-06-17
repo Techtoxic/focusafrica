@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Bricolage_Grotesque } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-// Bricolage Grotesque: contemporary, characterful display sans with a confident voice
-// Inter: clean, modern body that keeps the personality readable
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -42,7 +41,10 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#2b3a16',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f6eee2' },
+    { media: '(prefers-color-scheme: dark)', color: '#15100c' },
+  ],
   width: 'device-width',
   initialScale: 1,
 }
@@ -53,9 +55,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bricolage.variable} bg-[#F6EEE2]`}>
-      <body className="font-sans antialiased">
-        {children}
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${bricolage.variable}`}>
+      <body className="font-sans antialiased bg-cream text-ink">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          {children}
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

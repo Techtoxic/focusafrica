@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { navLinks, site, images } from "@/lib/content"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -49,20 +50,24 @@ export function Navigation() {
               ))}
             </div>
 
-            <div className="hidden lg:block">
+            <div className="hidden items-center gap-3 lg:flex">
+              <ThemeToggle />
               <Link href="/contact" className="btn btn-terra group">
                 Get in Touch
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <button
-              onClick={() => setOpen(!open)}
-              className="touch-target p-2 text-ink lg:hidden"
-              aria-label="Toggle menu"
-            >
-              {open ? <X size={26} strokeWidth={1.6} /> : <Menu size={26} strokeWidth={1.6} />}
-            </button>
+            <div className="flex items-center gap-1 lg:hidden">
+              <ThemeToggle />
+              <button
+                onClick={() => setOpen(!open)}
+                className="touch-target p-2 text-ink"
+                aria-label="Toggle menu"
+              >
+                {open ? <X size={26} strokeWidth={1.6} /> : <Menu size={26} strokeWidth={1.6} />}
+              </button>
+            </div>
           </div>
         </nav>
       </div>
