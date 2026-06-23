@@ -4,7 +4,7 @@ import { Reveal, Parallax } from "@/components/reveal"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
-import { servicesPage, servicesDetailed, images } from "@/lib/content"
+import { servicesPage, servicesDetailed, servicesPageIntro, images } from "@/lib/content"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -59,6 +59,9 @@ export default function ServicesPage() {
         {/* Services */}
         <section className="bg-cream py-12 lg:py-16">
           <div className="container-x space-y-20 lg:space-y-28">
+            <Reveal>
+              <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-ink-2">{servicesPageIntro}</p>
+            </Reveal>
             {servicesDetailed.map((s, i) => {
               const flip = i % 2 === 1
               return (

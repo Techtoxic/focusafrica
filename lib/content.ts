@@ -48,17 +48,17 @@ export const images = {
 
 // ── Home: hero ──
 export const hero = {
-  eyebrow: "Strategic Consultancy",
-  lines: ["Empowering", "Africa's", "future leaders"],
+  eyebrow: "Consulting since 2012",
+  lines: ["Your mission", "is big. You", "don't have to", "carry it alone."],
   body:
-    "Strategic solutions for sustainable growth across the continent. We partner with visionary organizations to unlock Africa's potential.",
-  primaryCta: { label: "Explore Services", href: "/services" },
-  secondaryCta: { label: "Our story", href: "/about" },
+    "From climate-smart agriculture to monitoring, evaluation and full project management, Focus Africa Leadership partners with NGOs, donors and government across East Africa — helping you deliver real results and prove the difference you make.",
+  primaryCta: { label: "Talk to us", href: "/contact" },
+  secondaryCta: { label: "Explore our services", href: "/services" },
 }
 
 // ── Home + About: stats ──
 export const homeStats = [
-  { number: 14, suffix: "", label: "Years of Excellence", sub: "Est. 2012" },
+  { number: 13, suffix: "+", label: "Years of Excellence", sub: "Est. 2012" },
   { number: 128, suffix: "", label: "Projects Delivered", sub: "Across the continent" },
   { number: 40, suffix: "", label: "African Countries", sub: "Active presence" },
   { number: 10000, suffix: "+", label: "Lives Transformed", sub: "And counting" },
@@ -87,9 +87,10 @@ export const aboutStrip = {
   eyebrow: "About Us",
   headingLead: "The journey behind",
   headingAccent: "Focus Africa",
+  trustLine: "Trusted by NGOs, donors and government since 2012",
   paragraphs: [
     "Founded with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape, from our home in Nyeri to the whole continent.",
-    "With experienced professionals, we deliver unparalleled results and create lasting impact for every individual and organization we partner with.",
+    "With experienced professionals, we deliver unparalleled results and create lasting impact for every individual and organisation we partner with.",
   ],
   miniStats: [
     { number: "40", label: "African countries" },
@@ -99,51 +100,54 @@ export const aboutStrip = {
   cta: { label: "Our Full Story", href: "/about" },
 }
 
-// ── Home: services accordion (all six, client-requested order) ──
+// ── Home: services accordion (client-requested order: Agriculture & M&E leading) ──
 export const homeServices = [
   {
     id: "01",
-    title: "Project Management",
+    title: "Agriculture, Environment & Climate Change",
     description:
-      "End-to-end stewardship of complex programmes, covering planning, governance, risk, procurement and delivery, keeping budgets, timelines and outcomes aligned with your strategic goals.",
-    href: "/services#project-management",
+      "Climate change is already changing daily life for farmers and communities across Africa — the rains, the harvests, the future. We help organisations, and the people they serve, adapt and build resilience and farm in ways that protect both livelihoods and the land for the years to come.",
+    href: "/services#agriculture",
   },
   {
     id: "02",
-    title: "Finance & Administration",
-    description:
-      "Fund management, financial administration, donor fund management, and organizational health checks. We bring financial clarity and operational excellence to every engagement.",
-    href: "/services#finance",
-  },
-  {
-    id: "03",
-    title: "Training & Capacity Development",
-    description:
-      "Corporate governance, agriculture training, finance administration, and expert-led team building programs designed to elevate organizational capabilities and leadership potential.",
-    href: "/services#training",
-  },
-  {
-    id: "04",
     title: "Monitoring & Evaluation",
     description:
-      "Indicator development, stakeholder engagement, M&E system design, and impact measurement. Track progress and demonstrate results with our comprehensive evaluation frameworks.",
+      "It's not enough to do good work today — you have to show that it's working. We help you track your progress and prove your impact with clear, honest evidence that funders trust. And we help turn that data into evidence that can unlock funding and open the door to credit for the farmers and communities you serve.",
     href: "/services#monitoring",
   },
   {
-    id: "05",
-    title: "Agriculture, Environment & Climate Change",
+    id: "03",
+    title: "Project Management",
     description:
-      "Comprehensive solutions to address climate change and promote sustainable agricultural practices across Africa. We partner with organizations to implement regenerative farming, conservation strategies, and climate resilience programs.",
-    href: "/services#agriculture",
+      "Running a big programme means holding a hundred things together at once — plans, budgets, deadlines, partners and funders who are counting on you. We take that weight off your shoulders. We manage your programme from the first plan to the final report, so nothing slips through the cracks and your funders stay confident in you.",
+    href: "/services#project-management",
+  },
+  {
+    id: "04",
+    title: "Finance & Administration",
+    description:
+      "Good work needs a strong financial backbone. But managing money and admin — especially donor funds with strict rules — eats up time and causes worry. We keep your finances well-managed and your operations in order, so you can focus on your mission instead of the paperwork.",
+    href: "/services#finance",
+  },
+  {
+    id: "05",
+    title: "Training & Capacity Development",
+    description:
+      "Your people are your greatest asset and they want to grow. We build their skills and their confidence with practical, hands-on training designed around your real needs, so the learning sticks long after the workshop ends.",
+    href: "/services#training",
   },
   {
     id: "06",
     title: "Research & Development",
     description:
-      "Customer ecosystem analysis, innovation roadmaps, and process optimization for continuous improvement. Our research-driven approach ensures data-backed decisions and strategic insights.",
+      "The best decisions are built on solid evidence, not guesswork. We do the research that helps you understand what is really happening on the ground, so you can choose your next step with confidence and stay ahead of what's coming.",
     href: "/services#research",
   },
 ]
+
+export const servicesPageIntro =
+  "Every organisation we work with is trying to do something that matters. Our job is to make it easier and to help you show it worked. Here's how we can support you."
 
 export const homeServicesHeader = {
   eyebrow: "Our Services",
@@ -157,7 +161,7 @@ export const process = {
   eyebrow: "How We Work",
   headingLead: "Our proven",
   headingAccent: "process",
-  aside: "Refined over years of partnering with organizations across the continent.",
+  aside: "Refined over years of partnering with organisations across the continent.",
   steps: [
     {
       number: "01",
@@ -216,7 +220,7 @@ export const testimonials = [
 export const homeCta = {
   eyebrow: "Get Started",
   headingLead: "Ready to transform",
-  headingAccent: "your organization?",
+  headingAccent: "your organisation?",
   body: "Partner with us to bring your vision to life and create lasting impact across Africa.",
   primaryCta: { label: "Schedule a Consultation", href: "/contact" },
   secondaryCta: { label: "Explore Services", href: "/services" },
@@ -229,7 +233,7 @@ export const aboutPage = {
     headingLead: "A trusted partner",
     headingAccent: "for over a decade",
     body:
-      "Empowering businesses, individuals, and organizations throughout Africa with strategic solutions for sustainable growth.",
+      "Empowering businesses, individuals, and organisations throughout Africa with strategic solutions for sustainable growth.",
   },
   story: {
     eyebrow: "Our Journey",
@@ -237,7 +241,7 @@ export const aboutPage = {
     headingAccent: "future together",
     paragraphs: [
       "Founded in 2012, Focus Africa Leadership was established with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape.",
-      "With a strong focus on customer satisfaction and a team of experienced professionals, we strive to deliver unparalleled results and create lasting positive impact combining deep local knowledge with global best practices.",
+      "With a strong focus on customer satisfaction and a team of experienced professionals, we strive to deliver unparalleled results and create lasting positive impact — combining deep local knowledge with global best practices.",
       "Over the years, we have expanded our reach across 40 countries, transforming over 10,000 lives and completing 128 successful projects.",
     ],
   },
@@ -264,6 +268,7 @@ export const aboutPage = {
       title: "Collaboration",
       description:
         "We build strong partnerships and foster teamwork that delivers lasting results for all stakeholders across the value chain.",
+
     },
     {
       id: "04",
@@ -289,12 +294,12 @@ export const servicesPage = {
     headingLead: "Comprehensive",
     headingAccent: "consultancy services",
     body:
-      "Tailored solutions designed to address the unique challenges facing African organizations and businesses.",
+      "Tailored solutions designed to address the unique challenges facing African organisations and businesses.",
   },
   cta: {
     eyebrow: "Get Started",
     headingLead: "Ready to transform",
-    headingAccent: "your organization?",
+    headingAccent: "your organisation?",
     body:
       "Let's discuss how our services can help you achieve your goals and drive sustainable growth across Africa.",
     primaryCta: { label: "Schedule a Consultation", href: "/contact" },
@@ -303,73 +308,74 @@ export const servicesPage = {
 
 export const servicesDetailed = [
   {
-    id: "project-management",
+    id: "agriculture",
     number: "01",
-    title: "Project Management",
+    title: "Agriculture, Environment & Climate Change",
     description:
-      "End-to-end stewardship of complex programmes, from planning and governance through procurement, risk management and delivery. We keep budgets, timelines and outcomes aligned with your strategic goals and your funders' expectations.",
-    image: images.projectManagement,
+      "Climate change is already changing daily life for farmers and communities across Africa — the rains, the harvests, the future. We help organisations, and the people they serve, adapt and build resilience and farm in ways that protect both livelihoods and the land for the years to come.",
+    image: images.agriculture,
     subServices: [
-      "Programme planning & inception",
-      "Governance, risk & compliance frameworks",
-      "Procurement & contract management",
-      "Stakeholder coordination & reporting",
-    ],
-  },
-  {
-    id: "finance",
-    number: "02",
-    title: "Finance & Administration",
-    description:
-      "Robust financial management and administrative support to ensure organizational health and sustainability. We bring clarity and efficiency to your operations.",
-    image: images.finance,
-    subServices: [
-      "Fund Management services",
-      "Financial Administration support",
-      "Donor Fund Management",
-      "Organizational Health Checks",
-    ],
-  },
-  {
-    id: "training",
-    number: "03",
-    title: "Training & Capacity Development",
-    description:
-      "Empowering teams with the knowledge and skills needed to excel in today's competitive landscape. We design tailored programs for lasting organizational growth.",
-    image: images.training,
-    subServices: [
-      "Corporate Governance training",
-      "Agriculture & Agribusiness programs",
-      "Finance & Administration workshops",
-      "Team Building and Leadership",
+      "Practical strategies to adapt to a changing climate",
+      "Capacity building for NGOs and government teams",
+      "Research and innovation, including carbon and sequestration work",
+      "Direct, on-the-ground support for farmers and pastoralists",
     ],
   },
   {
     id: "monitoring",
-    number: "04",
+    number: "02",
     title: "Monitoring & Evaluation",
     description:
-      "Data-driven insights to measure impact and ensure programs achieve their intended outcomes. Track progress and demonstrate results with precision.",
+      "It's not enough to do good work today — you have to show that it's working. We help you track your progress and prove your impact with clear, honest evidence that funders trust. And we go one step further: we help turn that same data into evidence that can unlock funding and open the door to credit for the farmers and communities you serve.",
     image: images.monitoring,
     subServices: [
-      "Indicator Development frameworks",
-      "Stakeholder Engagement strategies",
-      "M&E System Design",
-      "Impact Measurement",
+      "Design simple, practical M&E systems that fit how you actually work",
+      "Choose the right things to measure, with clear indicators",
+      "Engage the people who matter most to your project",
+      "Measure your real impact and tell that story with confidence",
+      "Turn your monitoring data into evidence that can unlock finance and credit",
     ],
   },
   {
-    id: "agriculture",
-    number: "05",
-    title: "Agriculture, Environment & Climate Change",
+    id: "project-management",
+    number: "03",
+    title: "Project Management",
     description:
-      "Comprehensive solutions to address climate change and promote sustainable agricultural practices across the African continent. We help organizations build resilience and drive positive environmental impact.",
-    image: images.agriculture,
+      "Running a big programme means holding a hundred things together at once — plans, budgets, deadlines, partners and funders who are counting on you. We take that weight off your shoulders. We manage your programme from the first plan to the final report, so nothing slips through the cracks and your funders stay confident in you.",
+    image: images.projectManagement,
     subServices: [
-      "Climate Change Adaptation strategies",
-      "Capacity Building for NGOs and government",
-      "Research and Innovation in carbon sequestration",
-      "Support for Farmers and Pastoralists",
+      "Plan your programme and get it off to a strong, organised start",
+      "Put simple systems in place to manage risk and stay compliant",
+      "Handle procurement and contracts properly and transparently",
+      "Keep everyone on the same page and report clearly to your funders",
+    ],
+  },
+  {
+    id: "finance",
+    number: "04",
+    title: "Finance & Administration",
+    description:
+      "Good work needs a strong financial backbone. But managing money and admin — especially donor funds with strict rules — eats up time and causes worry. We keep your finances well-managed and your operations in order, so you can focus on your mission instead of the paperwork.",
+    image: images.finance,
+    subServices: [
+      "Manage your funds carefully, accurately and transparently",
+      "Take care of day-to-day financial administration",
+      "Handle donor funds exactly the way donors expect",
+      "Run health checks to catch weak points before they become problems",
+    ],
+  },
+  {
+    id: "training",
+    number: "05",
+    title: "Training & Capacity Development",
+    description:
+      "Your people are your greatest asset and they want to grow. We build their skills and their confidence with practical, hands-on training designed around your real needs, so the learning sticks long after the workshop ends.",
+    image: images.training,
+    subServices: [
+      "Corporate governance training for boards and leaders",
+      "Agriculture and agribusiness skills development",
+      "Finance and administration workshops",
+      "Team building and leadership development",
     ],
   },
   {
@@ -377,13 +383,13 @@ export const servicesDetailed = [
     number: "06",
     title: "Research & Development",
     description:
-      "Driving innovation through comprehensive research services that help organizations stay ahead of the curve. Our data-driven approach ensures informed decision-making.",
+      "The best decisions are built on solid evidence, not guesswork. We do the research that helps you understand what is really happening on the ground, so you can choose your next step with confidence and stay ahead of what's coming.",
     image: images.research,
     subServices: [
-      "Customer Ecosystem Analysis",
-      "Innovation Roadmaps development",
-      "Process Optimization strategies",
-      "Continuous Learning implementation",
+      "Applied and action research",
+      "Baseline, feasibility and evaluation studies",
+      "Evidence reviews and easy-to-read policy briefs",
+      "Learning agendas and innovation pilots to keep improving",
     ],
   },
 ]
@@ -422,10 +428,10 @@ export const contactPage = {
 
 // ── Footer (all six services, client-requested order) ──
 export const footerServiceLinks = [
+  { href: "/services#agriculture", label: "Agriculture, Environment & Climate" },
+  { href: "/services#monitoring", label: "Monitoring & Evaluation" },
   { href: "/services#project-management", label: "Project Management" },
   { href: "/services#finance", label: "Finance & Administration" },
   { href: "/services#training", label: "Training & Capacity Development" },
-  { href: "/services#monitoring", label: "Monitoring & Evaluation" },
-  { href: "/services#agriculture", label: "Agriculture, Environment & Climate" },
   { href: "/services#research", label: "Research & Development" },
 ]
