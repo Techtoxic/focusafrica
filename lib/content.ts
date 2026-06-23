@@ -51,7 +51,7 @@ export const hero = {
   eyebrow: "Consulting since 2012",
   lines: ["Your mission", "is big. You", "don't have to", "carry it alone."],
   body:
-    "From climate-smart agriculture to monitoring, evaluation and full project management, Focus Africa Leadership partners with NGOs, donors and government across East Africa — helping you deliver real results and prove the difference you make.",
+    "From climate-smart agriculture to monitoring, evaluation and full project management, Focus Africa Leadership partners with NGOs, donors and government across East Africa, helping you deliver real results and prove the difference you make.",
   primaryCta: { label: "Talk to us", href: "/contact" },
   secondaryCta: { label: "Explore our services", href: "/services" },
 }
@@ -106,28 +106,28 @@ export const homeServices = [
     id: "01",
     title: "Agriculture, Environment & Climate Change",
     description:
-      "Climate change is already changing daily life for farmers and communities across Africa — the rains, the harvests, the future. We help organisations, and the people they serve, adapt and build resilience and farm in ways that protect both livelihoods and the land for the years to come.",
+      "Climate change is already changing daily life for farmers and communities across Africa: the rains, the harvests, the future. We help organisations, and the people they serve, adapt and build resilience and farm in ways that protect both livelihoods and the land for the years to come.",
     href: "/services#agriculture",
   },
   {
     id: "02",
     title: "Monitoring & Evaluation",
     description:
-      "It's not enough to do good work today — you have to show that it's working. We help you track your progress and prove your impact with clear, honest evidence that funders trust. And we help turn that data into evidence that can unlock funding and open the door to credit for the farmers and communities you serve.",
+      "It's not enough to do good work today. You have to show that it's working. We help you track your progress and prove your impact with clear, honest evidence that funders trust. And we help turn that data into evidence that can unlock funding and open the door to credit for the farmers and communities you serve.",
     href: "/services#monitoring",
   },
   {
     id: "03",
     title: "Project Management",
     description:
-      "Running a big programme means holding a hundred things together at once — plans, budgets, deadlines, partners and funders who are counting on you. We take that weight off your shoulders. We manage your programme from the first plan to the final report, so nothing slips through the cracks and your funders stay confident in you.",
+      "Running a big programme means holding a hundred things together at once: plans, budgets, deadlines, partners and funders who are counting on you. We take that weight off your shoulders. We manage your programme from the first plan to the final report, so nothing slips through the cracks and your funders stay confident in you.",
     href: "/services#project-management",
   },
   {
     id: "04",
     title: "Finance & Administration",
     description:
-      "Good work needs a strong financial backbone. But managing money and admin — especially donor funds with strict rules — eats up time and causes worry. We keep your finances well-managed and your operations in order, so you can focus on your mission instead of the paperwork.",
+      "Good work needs a strong financial backbone. But managing money and admin, especially donor funds with strict rules, eats up time and causes worry. We keep your finances well-managed and your operations in order, so you can focus on your mission instead of the paperwork.",
     href: "/services#finance",
   },
   {
@@ -241,7 +241,7 @@ export const aboutPage = {
     headingAccent: "future together",
     paragraphs: [
       "Founded in 2012, Focus Africa Leadership was established with a vision to drive sustainable growth, innovation, and empowerment across Africa's unique business landscape.",
-      "With a strong focus on customer satisfaction and a team of experienced professionals, we strive to deliver unparalleled results and create lasting positive impact — combining deep local knowledge with global best practices.",
+      "With a strong focus on customer satisfaction and a team of experienced professionals, we strive to deliver unparalleled results and create lasting positive impact, combining deep local knowledge with global best practices.",
       "Over the years, we have expanded our reach across 40 countries, transforming over 10,000 lives and completing 128 successful projects.",
     ],
   },
@@ -312,7 +312,7 @@ export const servicesDetailed = [
     number: "01",
     title: "Agriculture, Environment & Climate Change",
     description:
-      "Climate change is already changing daily life for farmers and communities across Africa — the rains, the harvests, the future. We help organisations, and the people they serve, adapt and build resilience and farm in ways that protect both livelihoods and the land for the years to come.",
+      "Climate change is already changing daily life for farmers and communities across Africa: the rains, the harvests, the future. We help organisations, and the people they serve, adapt and build resilience and farm in ways that protect both livelihoods and the land for the years to come.",
     image: images.agriculture,
     subServices: [
       "Practical strategies to adapt to a changing climate",
@@ -326,7 +326,7 @@ export const servicesDetailed = [
     number: "02",
     title: "Monitoring & Evaluation",
     description:
-      "It's not enough to do good work today — you have to show that it's working. We help you track your progress and prove your impact with clear, honest evidence that funders trust. And we go one step further: we help turn that same data into evidence that can unlock funding and open the door to credit for the farmers and communities you serve.",
+      "It's not enough to do good work today. You have to show that it's working. We help you track your progress and prove your impact with clear, honest evidence that funders trust. And we go one step further: we help turn that same data into evidence that can unlock funding and open the door to credit for the farmers and communities you serve.",
     image: images.monitoring,
     subServices: [
       "Design simple, practical M&E systems that fit how you actually work",
@@ -341,7 +341,7 @@ export const servicesDetailed = [
     number: "03",
     title: "Project Management",
     description:
-      "Running a big programme means holding a hundred things together at once — plans, budgets, deadlines, partners and funders who are counting on you. We take that weight off your shoulders. We manage your programme from the first plan to the final report, so nothing slips through the cracks and your funders stay confident in you.",
+      "Running a big programme means holding a hundred things together at once: plans, budgets, deadlines, partners and funders who are counting on you. We take that weight off your shoulders. We manage your programme from the first plan to the final report, so nothing slips through the cracks and your funders stay confident in you.",
     image: images.projectManagement,
     subServices: [
       "Plan your programme and get it off to a strong, organised start",
@@ -355,7 +355,7 @@ export const servicesDetailed = [
     number: "04",
     title: "Finance & Administration",
     description:
-      "Good work needs a strong financial backbone. But managing money and admin — especially donor funds with strict rules — eats up time and causes worry. We keep your finances well-managed and your operations in order, so you can focus on your mission instead of the paperwork.",
+      "Good work needs a strong financial backbone. But managing money and admin, especially donor funds with strict rules, eats up time and causes worry. We keep your finances well-managed and your operations in order, so you can focus on your mission instead of the paperwork.",
     image: images.finance,
     subServices: [
       "Manage your funds carefully, accurately and transparently",
