@@ -146,9 +146,6 @@ export const homeServices = [
   },
 ]
 
-export const servicesPageIntro =
-  "Every organisation we work with is trying to do something that matters. Our job is to make it easier and to help you show it worked. Here's how we can support you."
-
 export const homeServicesHeader = {
   eyebrow: "Our Services",
   headingLead: "Solutions for",
@@ -294,7 +291,7 @@ export const servicesPage = {
     headingLead: "Comprehensive",
     headingAccent: "consultancy services",
     body:
-      "Tailored solutions designed to address the unique challenges facing African organisations and businesses.",
+      "Every organisation we work with is trying to do something that matters. Our job is to make it easier and to help you show it worked. Here's how we can support you.",
   },
   cta: {
     eyebrow: "Get Started",
